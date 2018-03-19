@@ -13,20 +13,20 @@
       <div class = text-right>
         <h2>Job title</h2>
           <%= @user.description %>
-        <h2>My projects</h2>
+        <h3>My projects</h>
         <h3>Current projects</h3>
         <ul class = "list-inline">
           <% @user.projects.each do |project| %>
-            <% if @user.project.status == pending %>
-              <li> <%= project.tag %></li>
+            <% if project.status == "pending" %>
+              <li> <%= project.name %></li>
             <% end %>
           <% end %>
         </ul>
         <h3>Passed projects</h3>
         <ul class = "list-inline">
           <% @user.projects.each do |project| %>
-            <% if @user.project.status == archived %>
-              <li> <%= project.tag %></li>
+            <% if project.status == "archived" %>
+              <li> <%= project.name %></li>
             <% end %>
           <% end %>
         </ul>

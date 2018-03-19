@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 items = Item.create([{ name: 'Test 1', photo:'', url:'' }, { name: 'Test 2', photo:'https://images.unsplash.com/photo-1505575064689-c5f0586c4a78?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1866619498e104e9826cf3c0dd3b895b&auto=format&fit=crop&w=1350&q=80', url:''  }])
+project = Project.create([{name: 'Mr Martin', date: '2018-10-11',status:'pending' },{name: 'Mme Pau', date: '2017-09-11',status:'pending' },{name: 'Mr GUI', date: '2018-11-10',status:'pending' },{name: 'Mr dudu', date: '2018-01-01',status:'archived' }])
+p "done"
+
