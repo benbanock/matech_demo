@@ -1,0 +1,37 @@
+<h1>this is the profile page</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <% if @user.avatar.nil? %>
+        <%= image_tag "avatar2", id: "avatar", style: "width: 100%;" %>
+      <% else %>
+        <%= @url = cl_image_path @user.avatar %>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-md-9">
+      <div class = text-right>
+        <h2>Job title</h2>
+          <%= @user.description %>
+        <h2>My projects</h2>
+        <h3>Current projects</h3>
+        <ul class = "list-inline">
+          <% @user.projects.each do |project| %>
+            <% if @user.project.status == pending %>
+              <li> <%= project.tag %></li>
+            <% end %>
+          <% end %>
+        </ul>
+        <h3>Passed projects</h3>
+        <ul class = "list-inline">
+          <% @user.projects.each do |project| %>
+            <% if @user.project.status == archived %>
+              <li> <%= project.tag %></li>
+            <% end %>
+          <% end %>
+        </ul>
+        <h3>Favorites tags</h3>
+      </div>
+    </div>
+  </div>
+</div>
