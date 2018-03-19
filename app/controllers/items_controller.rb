@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-      @items = policy_scope(Item)
+    @items = policy_scope(Item)
     @items = Item.all
   end
 
