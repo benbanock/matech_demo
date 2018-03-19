@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20180319153227) do
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
-
   end
 
   create_table "user_projects", force: :cascade do |t|
