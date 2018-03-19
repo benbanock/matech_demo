@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319114708) do
+ActiveRecord::Schema.define(version: 20180319131727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,31 @@ ActiveRecord::Schema.define(version: 20180319114708) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "project_items", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_project_items_on_item_id"
+    t.index ["project_id"], name: "index_project_items_on_project_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_projects", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_user_projects_on_project_id"
+    t.index ["user_id"], name: "index_user_projects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +64,8 @@ ActiveRecord::Schema.define(version: 20180319114708) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "project_items", "items"
+  add_foreign_key "project_items", "projects"
+  add_foreign_key "user_projects", "projects"
+  add_foreign_key "user_projects", "users"
 end
