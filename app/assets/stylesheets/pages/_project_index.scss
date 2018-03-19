@@ -1,0 +1,34 @@
+.project-nav {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 1px 1px grey; //test visuel
+}
+
+.project-groups {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.project-groups li {
+  display: inline-block;
+}
+
+.project-card {
+  box-shadow: 1px 1px 1px 1px grey;
+  margin: 20px 50px;
+}
+
+.card-project-photo {
+  background-color: grey; //test visuel
+  height: 150px; //test visuel
+  width: 150px; //test visuel
+}
+
+.card-project-element {
+  display: flex;
+}
+
+.card-project-name {
+  background-color: lightgrey; //test visuel
+  flex: 1 0 auto;
+}
