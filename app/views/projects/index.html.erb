@@ -1,0 +1,37 @@
+<h1>Project#index</h1>
+
+<ul>
+  <div class="project-nav">
+    <div class="row">
+      <li>Recent projects</li>
+      <li>Favorites</li>
+      <li>All</li>
+    </div>
+    <div class="row">
+      <li>New project</li>
+    </div>
+  </div>
+
+</ul>
+
+<% @projects.each do |project| %>
+  <ul>
+    <div class="row">
+      <div class="col-xs-6 col-sm-4">
+
+
+      </div>
+
+      <li>PROJECT PHOTO/link</li>
+    </div>
+    <div class="row">
+      <li><%= project.name %></li>
+      <li><%# project.user %></li>
+    </div>
+    <div class="row">
+      <li>UPDATE</li>
+      <li>DELETE</li>
+      <li>SHOW</li>
+    </div>
+  </ul>
+<% end %>
