@@ -1,37 +1,38 @@
-<h1>Project#index</h1>
+<div class="container">
+  <h1>Projects</h1>
 
-<ul>
   <div class="project-nav">
     <div class="row">
-      <li>Recent projects</li>
-      <li>Favorites</li>
-      <li>All</li>
+      <div class="project-groups">
+        <ul>
+          <li>Recent | </li>
+          <li>Favorites | </li>
+          <li>All</li>
+        </ul>
+      </div>
     </div>
     <div class="row">
-      <li>New project</li>
+      <p>New project</p>
     </div>
   </div>
 
-</ul>
-
-<% @projects.each do |project| %>
-  <ul>
-    <div class="row">
-      <div class="col-xs-6 col-sm-4">
-
-
+  <% @projects.each do |project| %>
+    <div class="col-xs-12 col-sm-6">
+      <div class="project-card">
+        <div class="row">
+          <div class="card-project-element">
+            <div class="card-project-photo">
+              <p>PHOTO/link</p>
+            </div>
+            <div class="card-project-name">
+              <h3><%= project.name %></h3>
+              <p>Shared with ***Project USERS***</p>
+              <p><%= link_to "Edit", edit_project_path(project) %></p>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  <% end %>
+</div>
 
-      <li>PROJECT PHOTO/link</li>
-    </div>
-    <div class="row">
-      <li><%= project.name %></li>
-      <li><%# project.user %></li>
-    </div>
-    <div class="row">
-      <li>UPDATE</li>
-      <li>DELETE</li>
-      <li>SHOW</li>
-    </div>
-  </ul>
-<% end %>
