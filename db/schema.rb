@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180319151742) do
     t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
