@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    authorize @item
+    @tag = Tag.new
   end
 
   def destroy
@@ -14,4 +16,8 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+
+  def Items_params
+    params.require(:item).permit(:name, :photo, :url, :tag_list)
+  end
 end
