@@ -1,6 +1,31 @@
-
 .card {
   margin: 20px 5px;
   height: 300px;
   background-size: cover;
+  position: relative;
+  cursor: pointer;
+    .tagshover {
+    position: absolute;
+    bottom: -300px;
+    background-color: white;
+    width: 100%;
+    h1 {
+      font-size: 20px;
+      margin: 20px;
+    }
+  }
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    .tagshover {
+      position: absolute;
+      bottom: 0;
+      background-color: white;
+      width: 100%;
+      h1 {
+        font-size: 20px;
+        margin: 20px;
+      }
+    }
+  }
 }
+
