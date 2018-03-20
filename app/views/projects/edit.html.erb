@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Edit "<%= @project.name %>"</h2>
+
+  <div class="block-container">
+    <div class="block-edit">
+      <%= simple_form_for(@project) do |f| %>
+        <div class="form-inlign">
+          <p><%= f.input :name, label: false %></p>
+          <p><%= f.button :submit, "Modify", class: "btn btn-primary" %></p>
+        </div>
+      <% end %>
+      <%= simple_form_for([@project, @user_project]) do |f| %>
+        <div class="form-inlign">
+          <p><%= f.input :user_id, policy_scope:"add a user", label: false, collection: User.all.map(&:email) %></p>
+          <p><%= f.button :submit, "Add", class: "btn btn-primary" %></p>
+        </div>
+      <% end %>
+      <div class="form-inlign">
+        <p>Archive | </p>
+        <p><%= link_to "Delete", project_path(@project), method: :delete %></p>
+      </div>
+    </div>
+
+    <div class="block-users">
+      <h3>Team:</h3>
+      <% @users.each do |user| %>
+        <p>AVATAR<%#= user.avatar %></p>
+        <p><%= user.first_name %> <%= user.last_name %></p>
+      <% end %>
+    </div>
+  </div>
+
+</div>
