@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :projects, only: [ :create, :index, :show, :update, :edit, :destroy ]
+  resources :projects, only: [ :create, :index, :show, :update, :edit, :destroy ] do
+    resources :user_projects, only: [ :create ]
+  end
   devise_for :users
   get "profile", to: "pages#profile"
   get "index", to: "pages#index"
