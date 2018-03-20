@@ -15,7 +15,8 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    @users = @project.users
+    @users = User.all
+    # @users = @project.users
     @user_project = UserProject.new
     authorize @project
   end
