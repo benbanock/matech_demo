@@ -5,7 +5,7 @@
       <% if item.photo.blank? %>
         <% photo = "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ce08c47852fb7cceac5e1e0fa88f404&auto=format&fit=crop&w=1012&q=80"%>
       <% else %>
-        <% photo = item.photo %>
+        <% photo = image_path item.photo %>
       <% end %>
       <div class="col-xs-12 col-md-4">
         <div class="card" style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
