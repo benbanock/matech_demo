@@ -1,27 +1,29 @@
 .project-nav {
   display: flex;
   justify-content: space-between;
-  box-shadow: 1px 1px 1px 1px grey; //test visuel
+  padding: 20px;
 }
 
-.project-groups {
-  list-style-type: none;
-  display: inline-block;
-}
-
-.project-groups li {
+.project-groups p {
   display: inline-block;
 }
 
 .project-card {
-  box-shadow: 1px 1px 1px 1px grey;
-  margin: 20px 50px;
+  box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
+  background-color: white;
+  margin: 20px 20px;
 }
 
 .card-project-photo {
-  background-color: grey; //test visuel
-  height: 150px; //test visuel
-  width: 150px; //test visuel
+}
+
+#photo-project {
+  height: 180px;
+  width: 180px;
+  padding: 20px 20px;
+  margin: 0px 10px;
+  border-radius: 50%;
+  background-size: cover;
 }
 
 .card-project-element {
@@ -29,6 +31,5 @@
 }
 
 .card-project-name {
-  background-color: lightgrey; //test visuel
   flex: 1 0 auto;
 }
