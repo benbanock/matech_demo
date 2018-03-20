@@ -9,7 +9,15 @@ class ProjectPolicy < ApplicationPolicy
     return true
   end
 
-  def destroy?
-    record.user == user
+  def edit?
+    return true
+  end
+
+  def update?
+    edit?
+  end
+
+  def delete?
+    edit?
   end
 end
