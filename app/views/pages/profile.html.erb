@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-3">
       <% if @user.avatar.nil? %>
-        <%= image_tag "avatar2", id: "avatar", style: "width: 100%;" %>
+        <%= image_tag "avatar2.jpg", id: "avatar", style: "width: 100%;" %>
       <% else %>
         <%= image_tag @user.avatar %>
       <% end %>
