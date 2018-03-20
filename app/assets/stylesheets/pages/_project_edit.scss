@@ -1,0 +1,56 @@
+.block-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: justify;
+}
+
+.block-edit {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
+  display: inline-block;
+  width: 40%;
+  margin-right: 30px;
+}
+
+.block-users {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
+  flex: 1 0 auto ;
+}
+
+.form-inlign {
+  display: flex;
+  padding: 20px 30px;
+}
+
+.form-inlign p {
+  display: inline-block;
+}
+
+.button-inlign {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-stretch {
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+.btn-enlarge {
+  width: 150px;
+}
+
+#avatar-small {
+  height: 70px;
+  width: 70px;
+  padding: 5px 5px;
+  border-radius: 50%;
+  background-size: cover;
+  box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
+}

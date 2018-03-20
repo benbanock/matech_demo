@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Edit "<%= @project.name %>"</h2>
+
+  <div class="block-container">
+    <div class="block-edit">
+      <%= simple_form_for(@project) do |f| %>
+        <div class="form-inlign">
+          <p><%= f.input :name, label: false %></p>
+          <p><%= f.button :submit, "Modify", class: "btn btn-primary" %></p>
+        </div>
+      <% end %>
+      <%= simple_form_for([@project, @user_project]) do |f| %>
+        <div class="form-inlign">
+          <p><%= f.input :user_id, policy_scope:"add a user", label: false, collection: User.all.map(&:email) %></p>
+          <p><%= f.button :submit, "Add", class: "btn btn-primary" %></p>
+        </div>
+      <% end %>
+      <div class="form-inlign button-inlign">
+        <div class="button-stretch">
+          <%= link_to "Archive", project_path(@project), method: :archive, class: "btn btn-warning btn-enlarge" %>
+        </div>
+        <div class="button-stretch">
+          <%= link_to "Delete", project_path(@project), method: :delete, class: "btn btn-danger btn-enlarge" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-users">
+      <h3>Team:</h3>
+      <% @users.each do |user| %>
+        <div class="col-xs-12 col-sm-6">
+          <div class="project-card">
+            <div class="row">
+              <div class="card-project-element">
+                <div class="card-project-photo">
+                  <%= image_tag "#{user.avatar}", id: "avatar-small" %>
+                </div>
+                <div class="card-project-name">
+                  <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+                  <p><%= user.description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
