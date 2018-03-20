@@ -6,7 +6,7 @@
       <% if @user.avatar.nil? %>
         <%= image_tag "avatar2", id: "avatar", style: "width: 100%;" %>
       <% else %>
-        <%= @url = cl_image_path @user.avatar %>
+        <%= image_tag @user.avatar %>
       <% end %>
     </div>
     <div class="col-xs-12 col-md-9">
