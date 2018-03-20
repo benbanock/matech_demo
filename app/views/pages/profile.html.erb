@@ -3,7 +3,8 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-3">
-      <% if @user.avatar.nil? %>
+      <h2> <%= current_user.first_name %> <%= current_user.last_name %> </h2>
+      <% if current_user.avatar.nil? %>
         <%= image_tag "avatar2.jpg", id: "avatar", style: "width: 100%;" %>
       <% else %>
         <%= image_tag @user.avatar %>
@@ -12,11 +13,12 @@
     <div class="col-xs-12 col-md-9">
       <div class = text-right>
         <h2>Job title</h2>
-          <%= @user.description %>
+          <%= current_user.description %>
         <h3>My projects</h>
         <h3>Current projects</h3>
+
         <ul class = "list-inline">
-          <% @user.projects.each do |project| %>
+          <% current_user.projects.each do |project| %>
             <% if project.status == "pending" %>
               <li> <%= project.name %></li>
             <% end %>
@@ -24,7 +26,7 @@
         </ul>
         <h3>Passed projects</h3>
         <ul class = "list-inline">
-          <% @user.projects.each do |project| %>
+          <% current_user.projects.each do |project| %>
             <% if project.status == "archived" %>
               <li> <%= project.name %></li>
             <% end %>
