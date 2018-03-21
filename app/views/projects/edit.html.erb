@@ -4,8 +4,9 @@
   <div class="block-container">
     <div class="block-edit">
       <%= simple_form_for(@project) do |f| %>
-        <div class="form-inlign">
-          <p><%= f.input :name, label: false %></p>
+        <div>
+          <p><%= f.input :name %></p>
+          <p><%= f.input :status, collection: ["pending", "archived"] %></p>
           <p><%= f.button :submit, "Modify", class: "btn btn-primary" %></p>
         </div>
       <% end %>
@@ -17,13 +18,10 @@
       <% end %>
       <div class="form-inlign button-inlign">
         <div class="button-stretch">
-          <%= link_to "Archive", project_path(@project), method: :archive, class: "btn btn-warning btn-enlarge" %>
-        </div>
-        <div class="button-stretch">
           <%= link_to "Delete", project_path(@project), method: :delete, class: "btn btn-danger btn-enlarge" %>
+          <%= link_to "Back", projects_path, class: "btn btn-primary btn-enlarge" %>
         </div>
       </div>
-      <%= link_to "Back", projects_path, class: "btn btn-primay" %>
     </div>
 
     <div class="block-users">
@@ -41,11 +39,11 @@
                   <div class="card-project-name">
                     <h3><strong><%= user_project.user.first_name %> <%= user_project.user.last_name %></strong></h3>
                     <p><em><%= user_project.user.description %></em></p>
-                    <div class="card-project-delete">
-                      <%=link_to user_project_path(user_project), method: :delete do %>
-                        <%= image_tag "trash-simple.svg"%>
-                      <% end %>
-                    </div>
+                  </div>
+                  <div class="card-project-delete">
+                    <%=link_to user_project_path(user_project), method: :delete do %>
+                      <%= image_tag "trash-simple.svg"%>
+                    <% end %>
                   </div>
                 </div>
               </div>
