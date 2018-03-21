@@ -13,4 +13,11 @@ class User < ApplicationRecord
   def self.not_in_the_project(project)
     self.all.select {|user| !user.projects.include? project}
   end
+
+  acts_as_voter
+def likes
+  self.votes.up.for_type(Item)
+end
+  acts_as_tagger
+
 end
