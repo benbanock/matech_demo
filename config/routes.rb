@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "profile", to: "pages#profile"
   get "index", to: "pages#index"
   root to: 'pages#home'
+  resources :favorites, only: :index
   resources :items, only: [:index, :show, :destroy] do
     resources :tags, only: :create
     get "quickshow", to: "items#quickshow", as: :quickshow

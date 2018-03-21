@@ -42,5 +42,13 @@
       }
     }
   }
+  .card-like-link {
+    z-index: 3;
+    position: absolute;
+    bottom: 5px;
+    right: 3px;
+    color: #ffe100;
+    font-size: 20px;
+  }
 }
 
