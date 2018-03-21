@@ -11,7 +11,7 @@
 .project-card {
   box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
   background-color: white;
-  margin: 20px 20px;
+  margin-bottom: 15px;
 }
 
 .card-project-photo {
@@ -21,15 +21,12 @@
   height: 180px;
   width: 180px;
   padding: 20px 20px;
-  margin: 0px 10px;
+  margin-left: 10px;
   border-radius: 50%;
   background-size: cover;
 }
 
 .card-project-element {
   display: flex;
-}
-
-.card-project-name {
-  flex: 1 0 auto;
+  align-items: center;
 }
