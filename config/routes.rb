@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get "index", to: "pages#index"
   root to: 'pages#home'
   resources :items, only: [:index, :show, :destroy] do
+    resources :tags, only: :create
     get "quickshow", to: "items#quickshow", as: :quickshow
   end
+  resources :tags, only: [:index, :show, :create]
   patch "items/:id/like", to: "items#like", as: :like
   patch "items/:id/dislike", to: "items#dislike", as: :dislike
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
