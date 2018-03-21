@@ -5,7 +5,6 @@ class TagsController < ApplicationController
   end
 
   def create
-
     if params[:item_id]
       @item = Item.find(params[:item_id])
       authorize @item
@@ -21,6 +20,15 @@ class TagsController < ApplicationController
         render 'tags/index'
       end
     end
+  end
+
+  def destroy
+    @item = Item.find(params[:item_id])
+    authorize @item
+    @tag = Tag.find(params[:id])
+    @item.tag_list.remove(@tag.name)
+    @item.save
+    redirect_to item_path(@item)
   end
 
   def tag_params

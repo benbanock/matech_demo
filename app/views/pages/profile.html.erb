@@ -7,8 +7,9 @@
       <% if current_user.avatar.nil? %>
         <%= image_tag "avatar2.jpg", id: "avatar", style: "width: 100%;" %>
       <% else %>
-        <%= image_tag @user.avatar %>
+        <%= image_tag @user.avatar, id: "avatar", style:"width: 100%; "%>
       <% end %>
+      <%= link_to("edit", edit_user_registration_path, { method: :get, data: { confirm: "Do you want to modify yout account?" } })%>
     </div>
     <div class="col-xs-12 col-md-9">
       <div class = text-right>

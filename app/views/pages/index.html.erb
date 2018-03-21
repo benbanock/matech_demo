@@ -1,1 +1,12 @@
 <h1>this is the list of all the users</h1>
+<% @users.each do |user| %>
+  <div class="card-project-element">
+    <div class="card-project-photo">
+      <%= image_tag "#{user.avatar}", id: "avatar-small" %>
+    </div>
+    <div class="card-project-name">
+      <h3><strong><%= user.first_name %> <%= user.last_name %></strong></h3>
+      <p><em><%= user.description %></em></p>
+    </div>
+  </div>
+<% end %>

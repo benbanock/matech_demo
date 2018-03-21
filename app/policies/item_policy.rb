@@ -15,6 +15,10 @@ class ItemPolicy < ApplicationPolicy
   def delete?
     is_user_the_creator?
   end
+  def destroy?
+    # is_user_the_creator?
+    true
+  end
   def quickshow?
     true
   end

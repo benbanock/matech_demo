@@ -1,26 +1,43 @@
-
-<div class="container">
+<div class="container-show">
   <div class="row">
     <% if @item.photo.blank? %>
       <% photo = "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ce08c47852fb7cceac5e1e0fa88f404&auto=format&fit=crop&w=1012&q=80"%>
     <% else %>
       <% photo = image_path @item.photo %>
     <% end %>
-    <div class="col-xs-8 col-xs-offset-2">
+    <div class="col-xs-12 col-sm-6">
       <div class="photoshow" style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
       </div>
     </div>
-    <div class="col-xs-8 col-xs-offset-2">
-      <h1>All your tags here:</h1>
-      <p>test</p>
-      <h1>This is the item show</h1>
-      <%= render 'form' %>
-      <%= @item.tag_list %>
-      <%= button_to "Back", items_path, :class => "btn btn-danger", :method => :get %>
-      <%= link_to item_path(@item), method: :delete do %>
-        <%= image_tag "trash-simple.svg"%>
-      <% end %>
+    <div class="col-xs-12 col-sm-6">
+      <div class="show-content">
+        <div class="title">
+          <h1>All</h1><h1>your</h1><h1>tags</h1><h1>here:</h1>
+        </div>
+        <div class="form">
+          <%= render 'form' %>
+        </div>
+        <div class="tags">
+          <div class="tag">
+            <% @item.tag_list.each do |tag| %>
+              <button><%= tag %>
+                <div class="bellepou">
+                <%= link_to item_tag_path(@item, Tag.find_by_name(tag)), method: :delete do %>
+                  <%= image_tag "trash-simple.svg"%>
+                <% end %>
+                </div>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="scd-row">
+  <%= button_to "Back", items_path, :class => "btn btn-danger", :method => :get %>
+  <%= link_to item_path(@item), method: :delete do %>
+    <%= image_tag "trash-simple.svg"%>
+  <% end %>
   </div>
 </div>
 
