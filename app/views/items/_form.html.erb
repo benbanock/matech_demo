@@ -1,6 +1,4 @@
-
-
 <%= simple_form_for([@item, @tag]) do |f| %>
   <%= f.text_field :name %>
-  <%= f.submit %>
+  <%= f.submit "Add tag", :class => "create"  %>
 <% end %>
