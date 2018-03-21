@@ -40,6 +40,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (5.0.0)
       activerecord (>= 4.2.8)
+    acts_as_votable (0.11.1)
     arel (8.0.0)
     autoprefixer-rails (8.1.0.1)
       execjs
@@ -196,6 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 5.0)
+  acts_as_votable (~> 0.11.1)
   autoprefixer-rails
   bootsnap
   bootstrap-sass (~> 3.3)
