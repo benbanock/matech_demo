@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:item_id])
     authorize @item
   end
+
   def like
     @item = Item.find(params[:id])
     authorize @item
