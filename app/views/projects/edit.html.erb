@@ -9,9 +9,9 @@
           <p><%= f.button :submit, "Modify", class: "btn btn-primary" %></p>
         </div>
       <% end %>
-      <%= simple_form_for([@project, @user_project]) do |f| %>
+      <%= simple_form_for [@project, @user_project] do |f| %>
         <div class="form-inlign">
-          <p><%= f.input :user_id, policy_scope:"add a user", label: false, collection: User.all.map(&:email) %></p>
+          <p><%= f.input :user_id, policy_scope:"add a user", label: false, collection: User.not_in_the_project(@project).map { |user| [user.full_name, user.id] } %></p>
           <p><%= f.button :submit, "Add", class: "btn btn-primary" %></p>
         </div>
       <% end %>
@@ -23,27 +23,35 @@
           <%= link_to "Delete", project_path(@project), method: :delete, class: "btn btn-danger btn-enlarge" %>
         </div>
       </div>
+      <%= link_to "Back", projects_path, class: "btn btn-primay" %>
     </div>
 
     <div class="block-users">
-      <h3>Team:</h3>
-      <% @users.each do |user| %>
-        <div class="col-xs-12 col-sm-6">
-          <div class="project-card">
-            <div class="row">
-              <div class="card-project-element">
-                <div class="card-project-photo">
-                  <%= image_tag "#{user.avatar}", id: "avatar-small" %>
-                </div>
-                <div class="card-project-name">
-                  <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
-                  <p><%= user.description %></p>
+        <div class="row">
+          <h3>Team:</h3>
+        </div>
+        <div class="row">
+          <% @project.user_projects.each do |user_project| %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="project-card">
+                <div class="card-project-element">
+                  <div class="card-project-photo">
+                    <%= image_tag "#{user_project.user.avatar}", id: "avatar-small" %>
+                  </div>
+                  <div class="card-project-name">
+                    <h3><strong><%= user_project.user.first_name %> <%= user_project.user.last_name %></strong></h3>
+                    <p><em><%= user_project.user.description %></em></p>
+                  <div class="card-project-delete">
+                    <%=link_to user_project_path(user_project), method: :delete do %>
+                      <%= image_tag "trash-simple.svg"%>
+                    <% end %>
+                  </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
-      <% end %>
     </div>
   </div>
 

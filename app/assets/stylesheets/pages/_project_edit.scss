@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: justify;
+  flex-wrap: wrap;
 }
 
 .block-edit {
@@ -11,21 +12,33 @@
   justify-content: space-between;
   box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
   display: inline-block;
-  width: 40%;
-  margin-right: 30px;
+  flex: 0 0 100%;
+  @media (min-width: 768px) {
+    flex: 0 0 25%;
+    margin-left: 10px;
+  }
+  @media (min-width: 992px) {
+    flex: 0 0 30%;
+    margin-left: 20px;
+  }
 }
 
 .block-users {
   background-color: white;
   padding: 20px;
-  display: flex;
   box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
-  flex: 1 0 auto ;
+  flex: 0 0 100%;
+  @media (min-width: 768px) {
+    flex: 0 0 70%;
+  }
+  @media (min-width: 992px) {
+    flex: 0 0 65%;
+  }
 }
 
 .form-inlign {
   display: flex;
-  padding: 20px 30px;
+  padding: 20px 10px;
 }
 
 .form-inlign p {
@@ -43,14 +56,35 @@
 }
 
 .btn-enlarge {
-  width: 150px;
+  width: 100px;
 }
 
 #avatar-small {
   height: 70px;
   width: 70px;
-  padding: 5px 5px;
+  margin: 5px 10px;
   border-radius: 50%;
   background-size: cover;
   box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
+}
+
+#avatar-extra-small {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-size: cover;
+  box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
+}
+
+.card-project-name h3 {
+  margin: 0px 0px;
+  font-size: 20px;
+}
+
+.card-project-name p {
+  margin: 0px 0px;
+  font-size: 14px;
+}
+
+.card-project-delete {
 }
