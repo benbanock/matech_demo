@@ -5,13 +5,21 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.new(tag_params)
-    @item = Item.find(params[:item_id])
-    authorize @tag
-    if @tag.save
-      redirect_to item_path(item_id)
+
+    if params[:item_id]
+      @item = Item.find(params[:item_id])
+      authorize @item
+      @item.tag_list.add(tag_params[:name])
+      @item.save
+      redirect_to item_path(@item)
     else
-      render :new
+      @tag = Tag.new(tag_params)
+      authorize @tag
+      if @tag.save
+        redirect_to tags_path
+      else
+        render 'tags/index'
+      end
     end
   end
 

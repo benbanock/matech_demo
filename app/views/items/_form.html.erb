@@ -1,6 +1,6 @@
 
 
-<%= simple_form_for(@tag) do |f| %>
+<%= simple_form_for([@item, @tag]) do |f| %>
   <%= f.text_field :name %>
   <%= f.submit %>
 <% end %>
