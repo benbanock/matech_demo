@@ -41,11 +41,11 @@
                   <div class="card-project-name">
                     <h3><strong><%= user_project.user.first_name %> <%= user_project.user.last_name %></strong></h3>
                     <p><em><%= user_project.user.description %></em></p>
+                  </div>
                   <div class="card-project-delete">
                     <%=link_to user_project_path(user_project), method: :delete do %>
                       <%= image_tag "trash-simple.svg"%>
                     <% end %>
-                  </div>
                   </div>
                 </div>
               </div>

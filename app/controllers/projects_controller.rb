@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     authorize @project
     @project.destroy
-    redirect_to edit_project_path(@project)
+    redirect_to projects_path
   end
 
   def show
@@ -40,6 +40,23 @@ class ProjectsController < ApplicationController
     @items = @project.items
     authorize @project
   end
+
+  #SELECT / FILTER
+
+  def like
+    @project = Project.find(params[:id])
+    authorize @project
+    @project.liked_by current_user
+    redirect_to projects_path
+  end
+
+  def dislike
+    @project = Project.find(params[:id])
+    authorize @project
+    @project.disliked_by current_user
+    redirect_to projects_path
+  end
+
 
   private
 
