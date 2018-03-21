@@ -15,4 +15,9 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def quickshow
+    @item = Item.find(params[:item_id])
+    authorize @item
+  end
+
 end

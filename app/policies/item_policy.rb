@@ -7,4 +7,7 @@ class ItemPolicy < ApplicationPolicy
   def show?
     true
   end
+  def quickshow?
+    true
+  end
 end
