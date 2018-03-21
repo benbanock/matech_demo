@@ -25,5 +25,4 @@ class ItemPolicy < ApplicationPolicy
   def dislike?
     return true
   end
->>>>>>> master
 end
