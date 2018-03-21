@@ -12,4 +12,18 @@ class ItemPolicy < ApplicationPolicy
     true
   end
 
+  def delete?
+    is_user_the_creator?
+  end
+  def quickshow?
+    true
+  end
+  def like?
+    return true
+  end
+
+  def dislike?
+    return true
+  end
+>>>>>>> master
 end
