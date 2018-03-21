@@ -9,6 +9,8 @@ gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
 gem "pundit"
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
 gem 'acts-as-taggable-on', '~> 5.0'
 
 gem 'autoprefixer-rails'

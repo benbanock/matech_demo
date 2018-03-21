@@ -10,6 +10,8 @@
           <%= f.input :last_name, required: true, autofocus: true %>
           <%= f.input :description,label: 'Job title', required: true, autofocus: true %>
           <%= f.input :company_name, required: true, autofocus: true %>
+          <%= f.input :avatar %>
+          <%= f.input :avatar_cache, as: :hidden %>
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
