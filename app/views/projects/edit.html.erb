@@ -34,7 +34,7 @@
               <div class="project-card">
                 <div class="card-project-element">
                   <div class="card-project-photo">
-                    <%= image_tag "#{user_project.user.avatar}", id: "avatar-small" %>
+                    <%= image_tag user_project.user.picture, id: "avatar-small" %>
                   </div>
                   <div class="card-project-name">
                     <h3><strong><%= user_project.user.first_name %> <%= user_project.user.last_name %></strong></h3>
