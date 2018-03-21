@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :favorites, only: :index
   resources :items, only: [:index, :show, :destroy] do
-    resources :tags, only: :create
+    resources :tags, only: [:create, :destroy]
     get "quickshow", to: "items#quickshow", as: :quickshow
   end
   resources :tags, only: [:index, :show, :create]
