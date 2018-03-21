@@ -15,17 +15,34 @@
           <p><%= f.button :submit, "Add", class: "btn btn-primary" %></p>
         </div>
       <% end %>
-      <div class="form-inlign">
-        <p>Archive | </p>
-        <p><%= link_to "Delete", project_path(@project), method: :delete %></p>
+      <div class="form-inlign button-inlign">
+        <div class="button-stretch">
+          <%= link_to "Archive", project_path(@project), method: :archive, class: "btn btn-warning btn-enlarge" %>
+        </div>
+        <div class="button-stretch">
+          <%= link_to "Delete", project_path(@project), method: :delete, class: "btn btn-danger btn-enlarge" %>
+        </div>
       </div>
     </div>
 
     <div class="block-users">
       <h3>Team:</h3>
       <% @users.each do |user| %>
-        <p>AVATAR<%#= user.avatar %></p>
-        <p><%= user.first_name %> <%= user.last_name %></p>
+        <div class="col-xs-12 col-sm-6">
+          <div class="project-card">
+            <div class="row">
+              <div class="card-project-element">
+                <div class="card-project-photo">
+                  <%= image_tag "#{user.avatar}", id: "avatar-small" %>
+                </div>
+                <div class="card-project-name">
+                  <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+                  <p><%= user.description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
