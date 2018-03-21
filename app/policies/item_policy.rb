@@ -7,6 +7,11 @@ class ItemPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def create?
+    true
+  end
+
   def delete?
     is_user_the_creator?
   end

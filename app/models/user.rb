@@ -9,4 +9,5 @@ class User < ApplicationRecord
 def likes
   self.votes.up.for_type(Item)
 end
+  acts_as_tagger
 end
