@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "edit", to: "pages#edit"
   get "index", to: "pages#index"
   root to: 'pages#home'
+  get "json_to_send", to: "users#json_to_send"
   resources :favorites, only: :index
   resources :items, only: [:index, :show, :destroy] do
     resources :tags, only: [:create, :destroy]

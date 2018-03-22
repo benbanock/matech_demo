@@ -12,6 +12,10 @@ class UserPolicy < ApplicationPolicy
     is_user_the_creator?
   end
 
+  def json_to_send?
+    return true
+  end
+
   def update?
     is_user_the_creator?
   end
