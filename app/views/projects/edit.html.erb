@@ -6,7 +6,7 @@
       <%= simple_form_for(@project) do |f| %>
         <div>
           <p><%= f.input :name %></p>
-          <p><%= f.input :status, collection: ["pending", "archived"] %></p>
+          <p><%= f.input :status, collection: ["favorite", "pending", "archived"] %></p>
           <p><%= f.button :submit, "Modify", class: "btn btn-primary" %></p>
         </div>
       <% end %>
@@ -52,5 +52,4 @@
         </div>
     </div>
   </div>
-
 </div>

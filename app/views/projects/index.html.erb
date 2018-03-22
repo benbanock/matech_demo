@@ -37,7 +37,7 @@
               <div>
                 <p>Shared with</p>
                 <% project.users.each do |user| %>
-                  <%= image_tag "#{user.avatar}", id: "avatar-extra-small" %>
+                  <%= image_tag user.picture, id: "avatar-extra-small" %>
                 <% end %>
               </div>
               <p><%= link_to "Edit", edit_project_path(project) %></p>
