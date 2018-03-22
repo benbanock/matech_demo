@@ -1,0 +1,7 @@
+<%= form_tag  items_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "What's the tag you're looking for ?"
+  %>
+<% end %>

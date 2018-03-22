@@ -1,7 +1,17 @@
 class ItemsController < ApplicationController
+
   def index
     @items = policy_scope(Item)
-    @items = Item.all
+    if params[:query].present?
+      sql_query = " \
+        items.name ILIKE :query \
+        OR tags.name ILIKE :query \
+      "
+      raise
+      @items = Item.joins(:tag, :taggings).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @items = Item.all
+    end
   end
 
   def show
