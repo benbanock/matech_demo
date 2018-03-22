@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
+  skip_after_action :verify_policy_scoped, only: :index
 
   def index
     @project = Project.new
-    @projects = policy_scope(Project).order(created_at: :desc)
+    @projects = current_user.projects
   end
 
   def create
@@ -23,7 +24,6 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    @users = @project.users
     @user_project = UserProject.new
     authorize @project
   end

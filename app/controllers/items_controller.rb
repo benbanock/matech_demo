@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @project_item = ProjectItem.new
     authorize @item
     @tag = Tag.new
   end
