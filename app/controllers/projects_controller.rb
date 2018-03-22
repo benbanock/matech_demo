@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   def index
     @project = Project.new
     @projects = policy_scope(Project).order(created_at: :desc)
+
   end
 
   def create
@@ -37,7 +38,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @items = @project.items
+    # @project_items = ProjectItem.all
+    # @items = @project_items
     authorize @project
   end
 
