@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.date = Date.today
+    @project.date = Time.now
     authorize @project
     @project.save
     @tag = Tag.new
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     authorize @project
     @tag = Tag.where(name: @project.name).first
-    @project.date = Date.today
+    @project.date = Time.now
     @project.update(project_params)
     @tag.name = @project.name
     @tag.save
