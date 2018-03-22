@@ -10,7 +10,6 @@ class TagsController < ApplicationController
       authorize @item
       @item.tag_list.add(tag_params[:name])
       @item.save
-      if tag_params[:name]
       redirect_to item_path(@item)
     else
       @tag = Tag.new(tag_params)

@@ -7,8 +7,8 @@ class ItemsController < ApplicationController
         items.name ILIKE :query \
         OR tags.name ILIKE :query \
       "
-      raise
-      @items = Item.joins(:tag, :taggings).where(sql_query, query: "%#{params[:query]}%")
+
+      @items = Item.joins(:tags).where(sql_query, query: "%#{params[:query]}%")
     else
       @items = Item.all
     end
