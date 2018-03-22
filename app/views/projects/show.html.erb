@@ -1,6 +1,23 @@
 <div class="container">
   <h2>Project: "<%= @project.name %>"</h2>
 
+  <div>
+    <p>Shared with</p>
+    <% @project.users.each do |user| %>
+      <%= image_tag user.picture, id: "avatar-extra-small" %>
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
   <div class="row">
     <% @items.each do |item| %>
       <% if item.photo.blank? %>
