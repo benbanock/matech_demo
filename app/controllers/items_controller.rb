@@ -3,12 +3,7 @@ class ItemsController < ApplicationController
   def index
     @items = policy_scope(Item)
     if params[:query].present?
-      sql_query = " \
-        items.name ILIKE :query \
-        OR tags.name ILIKE :query \
-      "
-
-      @items = Item.joins(:tags).where(sql_query, query: "%#{params[:query]}%")
+      @items = params[:query].map { |query| Item.global_search("%#{query}%")}.inject(:&)
     else
       @items = Item.all
     end
