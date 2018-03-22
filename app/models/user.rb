@@ -28,6 +28,5 @@ class User < ApplicationRecord
     else
       avatar_url
     end
-
   end
 end
