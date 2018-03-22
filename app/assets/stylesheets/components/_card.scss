@@ -28,7 +28,7 @@
       transition: bottom .3s ease;
       h1 {
         font-size: 17px;
-        margin: 20px;
+        margin: 10px;
         color: rgb(30, 30, 30);
       }
       p {
@@ -38,7 +38,10 @@
       }
       .btn {
         margin: 10px;
-        margin-left: 125px;
+        position: relative;
+        left: 31%;
+        bottom: -21px;
+
       }
     }
   }

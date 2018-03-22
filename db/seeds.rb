@@ -33,7 +33,7 @@ end
 
 # generate 4 users
 4.times do
-  User.create({email: Faker::Internet.email, password: "azertyuiop", avatar: "", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Name.title })
+  User.create({email: Faker::Internet.email, password: "azertyuiop", avatar: nil, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Name.title })
 end
 # generate 4 UserProjects
 # for user1
