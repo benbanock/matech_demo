@@ -1,7 +1,12 @@
 class ItemsController < ApplicationController
+
   def index
     @items = policy_scope(Item)
-    @items = Item.all
+    if params[:query].present?
+      @items = params[:query].map { |query| Item.global_search("%#{query}%")}.inject(:&)
+    else
+      @items = Item.all
+    end
   end
 
   def show

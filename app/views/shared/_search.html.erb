@@ -1,0 +1,10 @@
+<%= form_tag items_path, method: :get do %>
+  <%= select_tag :query,
+    options_for_select(Tag.pluck(:name), params[:query]),
+    {
+      class: "form-control chosen-select",
+      placeholder: "What's the tag you're looking for ?",
+      multiple: true
+    }
+  %>
+<% end %>
