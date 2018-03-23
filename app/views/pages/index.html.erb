@@ -5,7 +5,7 @@
       <% @users.each do |user| %>
         <div class="card-project-element">
           <div class="card-project-photo">
-            <%= image_tag user.picture, id: "avatar-small" %>
+            <%= image_tag user.picture, class: "avatar-small" %>
           </div>
           <div class="card-project-name">
             <h3><strong><%= user.first_name %> <%= user.last_name %></strong></h3>

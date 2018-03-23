@@ -2,6 +2,17 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  align-items: center;
+}
+
+.project-groups {
+  display: flex;
+}
+
+.project-groups .form-inlign {
+  display: inline-block;
+  align-items: center;
+  padding: 0px;
 }
 
 .project-groups p {
@@ -17,10 +28,10 @@
 .card-project-photo {
 }
 
-#photo-project {
+.photo-project {
   height: 180px;
   width: 180px;
-  padding: 20px 20px;
+  padding: 15px 15px;
   margin-left: 10px;
   border-radius: 50%;
   background-size: cover;
@@ -29,4 +40,14 @@
 .card-project-element {
   display: flex;
   align-items: center;
+}
+
+.collaborator-block {
+  display: flex;
+  margin: 20px 0px;
+  align-items: center;
+}
+
+.avatar-margin-left {
+  margin-left: 10px;
 }

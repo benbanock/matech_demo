@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :favorites, only: :index
   resources :items, only: [:index, :show, :destroy] do
     resources :tags, only: [:create, :destroy]
-    resources :project_items, only: [:create]
+    resources :project_items, only: [:create, :destroy]
     get "quickshow", to: "items#quickshow", as: :quickshow
   end
 

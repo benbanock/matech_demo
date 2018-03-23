@@ -4,7 +4,7 @@ function addItem(item_url, item_title, user_id, images_url) {
   // console.log(item_title)
   // console.log(image_url)
   // console.log(user_id)
-  fetch("http://localhost:3000/create_ext", {
+  fetch("http://mattech.tech/create_ext", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -49,7 +49,7 @@ chrome.extension.onRequest.addListener(function(request, sender){
 
 let user_logged_in, user_id, projects, project_id;
 function getUserInfo() {
-  fetch("http://localhost:3000/json_to_send", { credentials: 'include' })
+  fetch("http://mattech.tech/json_to_send", { credentials: 'include' })
   .then(response => response.json())
   .then((data) => {
     console.log(data)
