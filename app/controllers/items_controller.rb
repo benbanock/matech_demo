@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
   skip_after_action :verify_authorized, only: :create_ext
+  skip_before_action :authenticate_user!, only: :create_ext
+  skip_before_action :verify_authenticity_token, only: :create_ext
+
   def index
     @items = policy_scope(Item)
     if params[:query].present?
@@ -17,15 +20,14 @@ class ItemsController < ApplicationController
   end
 
   def create_ext
-    # params
+    p params
+    p current_user
     # request.body
-    binding.pry
-    # data.item_url: item_url,
-    # data.item_title: item_title,
-    # data.image_url: image_url,
-    # data.user_id: user_id,
-    # data.project_id: project_id,
-    # data.comment: comment
+    item_url = params[:item_url],
+    item_title = params[:item_title]
+    images_url = params[:images_url]
+    @item = Item.create(photo: "",url: item_url, name: item_title )
+
     render json: {
       status: 200
     }

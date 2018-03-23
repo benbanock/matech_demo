@@ -1,4 +1,4 @@
-function addItem(item_url, item_title, user_id) {
+function addItem(item_url, item_title, user_id, images_url) {
   // project_id = document.getElementById("user-project").value;
   // console.log(item_url)
   // console.log(item_title)
@@ -7,14 +7,14 @@ function addItem(item_url, item_title, user_id) {
   fetch("http://localhost:3000/create_ext", {
     method: "POST",
     headers: {
-      'Access-Control-Allow-Origin':'*',
       "Content-Type": "application/json"
     },
+    credentials: 'same-origin',
     body: JSON.stringify({
       item_url: item_url,
       item_title: item_title,
-      // image_url: image_url,
-      user_id: user_id
+      user_id: user_id,
+      images_url: images_url
       // project_id: project_id,
     })
   })
@@ -28,19 +28,20 @@ function addItem(item_url, item_title, user_id) {
 // Step 2 - get collected images from collect_images.js output + launch user info
 
 
-let images;
+let images; let images_url
 chrome.extension.onRequest.addListener(function(request, sender){
   console.log(request.type)
   if(request.type === 'collect_images'){
     images = request.images;
     // console.log(images);
     // showSections(request.images);
-    console.log("inside_id")
+    images_url = images[0].src
+    console.log(images_url)
     getUserInfo();
   }
 });
 
-
+// let image_url == images[]
 
 
 // Step 3 - get user info + launch showSections

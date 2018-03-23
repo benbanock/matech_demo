@@ -12,7 +12,6 @@
         "128": "images/logo.png"
     },
     "permissions": [
-        "storage",
         "tabs",
         "http://localhost:3000/*",
         "https://*/*",
