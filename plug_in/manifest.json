@@ -14,7 +14,7 @@
     "permissions": [
         "storage",
         "tabs",
-        "http://*/*",
+        "http://localhost:3000/*",
         "https://*/*",
         "cookies",
         "notifications",

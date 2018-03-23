@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  skip_after_action :verify_authorized, only: :create_ext
   def index
     @items = policy_scope(Item)
     if params[:query].present?
