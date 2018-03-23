@@ -9,3 +9,18 @@
 
   }
 }
+
+.show-project {
+  margin-right: 20px;
+  margin: 10px;
+  position: relative;
+  #project_item_project_id.form-control.select.optional {
+    width: 30%;
+  }
+  p.project-button {
+    position: absolute;
+    left: 210px;
+    bottom: 3px;
+    width: 150px;
+  }
+}

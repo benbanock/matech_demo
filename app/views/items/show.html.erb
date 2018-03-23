@@ -36,20 +36,52 @@
       </div>
     </div>
   </div>
-  <div class="show-content">
-      <div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="show-project">
+      <div class="title">
+        <h2>Add a project:</h2>
+      </div>
+        <div class="row">
         <div>
           <%= simple_form_for [@item, @project_item] do |f| %>
-              <p><%= f.input :project_id, policy_scope:"add a project", collection: current_user.projects %></p>
-              <p><%= f.button :submit, "Add", class: "btn btn-primary" %></p>
+              <p class="project-list"><%= f.input :project_id, policy_scope:"add a project", collection: current_user.projects %></p>
+              <p class="project-button"><%= f.button :submit, "Add", class: "btn btn-primary" %></p>
           <% end %>
         </div>
       </div>
     </div>
-  <div class="scd-row">
-  <%= button_to "Back", items_path, :class => "btn btn-danger", :method => :get %>
-  <%= link_to item_path(@item), method: :delete do %>
-    <%= image_tag "trash-simple.svg"%>
-  <% end %>
+  </div>
+    <div class="col-xs-12 col-sm-6">
+    <div class="show-project">
+      <div class="title">
+        <h2>Item already assigned to projects:</h2>
+      </div>
+        <div class="row">
+        <div>
+        <div class="tags">
+          <div class="tag">
+
+            <% @item.projects.each do |project| %>
+              <button><%= project.name %>
+                <div class="bellepou">
+                <%= link_to item_project_item_path(@item, project), method: :delete do %>
+                  <%= image_tag "trash-simple.svg"%>
+                <% end %>
+                </div>
+              </button>
+            <% end %>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="scd-row">
+      <%= button_to "Back", items_path, :class => "btn btn-danger", :method => :get %>
+      <%= link_to item_path(@item), method: :delete do %>
+        <%= image_tag "trash-simple.svg"%>
+      <% end %>
+    </div>
   </div>
 </div>
