@@ -26,3 +26,4 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 end
+

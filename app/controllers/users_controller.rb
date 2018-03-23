@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def json_to_send
     if current_user
       authorize current_user

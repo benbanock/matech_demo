@@ -19,16 +19,13 @@ class ItemsController < ApplicationController
   def create_ext
     # params
     # request.body
-    binding.remote_pry
-
+    binding.pry
     # data.item_url: item_url,
     # data.item_title: item_title,
     # data.image_url: image_url,
     # data.user_id: user_id,
     # data.project_id: project_id,
     # data.comment: comment
-
-    @item = Item.find(params[])
   end
 
   def destroy

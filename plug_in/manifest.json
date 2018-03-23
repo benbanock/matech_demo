@@ -12,11 +12,12 @@
         "128": "images/logo.png"
     },
     "permissions": [
-         "tabs",
-         "http://*/*",
-         "https://*/*",
-         "cookies",
-         "notifications",
+        "storage",
+        "tabs",
+        "http://*/*",
+        "https://*/*",
+        "cookies",
+        "notifications",
         "contextMenus"
     ],
     "browser_action": {
