@@ -1,4 +1,3 @@
-
 function addItem(item_url, item_title, image_url, user_id, project_id) {
   project_id = document.getElementById("user-project").value;
 
@@ -21,15 +20,18 @@ function addItem(item_url, item_title, image_url, user_id, project_id) {
   });
 };
 
+
 // Step 2 - get collected images from collect_images.js output + launch user info
 
 
 let images;
 chrome.extension.onRequest.addListener(function(request, sender){
-  if(request.typeExtracted == 'collect_images'){
+  console.log(request.type)
+  if(request.type === 'collect_images'){
     images = request.images;
     // console.log(images);
     // showSections(request.images);
+    console.log("inside_id")
     getUserInfo();
   }
 });
@@ -47,7 +49,6 @@ function getUserInfo() {
     user_logged_in = data.logged_in;
     user_id = data.user_id;
     projects = data.projects;
-    console.log(user_id)
     // pref_project_id = data.pref_project_id;
     // pref_pricedrops = data.pref_pricedrops;
     // console.log(own_lists);
@@ -107,4 +108,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 });
+
+// launch the create function
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded and parsed");
+  // Add here your addEventListener code
+  const create = document.getElementById("save-btn");
+  create.addEventListener("click", (event) => {
+    console.log("dinh");
+  });
+});
+
+// send back data to matech
+
+
 
