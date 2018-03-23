@@ -26,6 +26,9 @@ class ItemsController < ApplicationController
     # data.user_id: user_id,
     # data.project_id: project_id,
     # data.comment: comment
+    render json: {
+      status: 200
+    }
   end
 
   def destroy

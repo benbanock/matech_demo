@@ -1,20 +1,24 @@
-function addItem(item_url, item_title, image_url, user_id, project_id) {
-  project_id = document.getElementById("user-project").value;
-
+function addItem(item_url, item_title, user_id) {
+  // project_id = document.getElementById("user-project").value;
+  // console.log(item_url)
+  // console.log(item_title)
+  // console.log(image_url)
+  // console.log(user_id)
   fetch("http://localhost:3000/create_ext", {
     method: "POST",
     headers: {
+      'Access-Control-Allow-Origin':'*',
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
       item_url: item_url,
       item_title: item_title,
-      image_url: image_url,
-      user_id: user_id,
-      project_id: project_id,
+      // image_url: image_url,
+      user_id: user_id
+      // project_id: project_id,
     })
   })
-  .then(response => response.json())
+  .then(response => response)
   .then((data) => {
     console.log(data);
   });
@@ -35,6 +39,8 @@ chrome.extension.onRequest.addListener(function(request, sender){
     getUserInfo();
   }
 });
+
+
 
 
 // Step 3 - get user info + launch showSections
@@ -110,13 +116,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // launch the create function
-
+let image_url
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
   // Add here your addEventListener code
   const create = document.getElementById("save-btn");
   create.addEventListener("click", (event) => {
-    console.log("dinh");
+    console.log(event);
+    addItem(item_url, item_title, image_url, user_id);
   });
 });
 
