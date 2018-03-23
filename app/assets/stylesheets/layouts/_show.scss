@@ -5,9 +5,6 @@
   margin-left: 20px;
   height: 100vh;
   position: relative;
-  .photoshow {
-    margin-bottom: 20px;
-  }
 }
 
 .title {
@@ -83,3 +80,15 @@
     right: 60px;
   }
 }
+ h4 {
+  margin-top: 50px;
+  margin-bottom: 0px;
+  color: #333333;
+  font-size: 20px;
+  font-weight: bolder;
+  &:hover {
+    text-decoration: none;
+    color: #333333;
+    font-size: 20px;
+  }
+ }
