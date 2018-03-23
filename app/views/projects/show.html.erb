@@ -26,6 +26,8 @@
           <% end %>
         <div class="tagshover">
           <h1>All your tags here:</h1>
+          <p>test</p>
+          <%= button_to "See more", item_path(item), :class => "btn btn-danger", :method => :get %>
           <div class="tags-index">
             <div class="tag-index">
               <% item.tag_list.each do |tag| %>
