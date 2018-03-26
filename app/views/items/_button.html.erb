@@ -1,0 +1,9 @@
+<div class="tag-projects">
+  <button><%= project_item.project.name %>
+    <div class="bellepou">
+    <%= link_to item_project_item_path(project_item.item, project_item), remote: true, method: :delete do %>
+      <%= image_tag "trash-simple.svg"%>
+    <% end %>
+    </div>
+  </button>
+</div>

@@ -1,3 +1,4 @@
+<%= render 'shared/search' %>
 <div class="col-xs-12">
   <h5><%= @item.name %></h5>
 </div>
@@ -22,15 +23,14 @@
             <%= render 'form' %>
           </div>
           <div class="tags">
-            <div class="tag">
+            <div class="tag-index">
               <% @item.tag_list.each do |tag| %>
-                <button><%= tag %>
+                <div class="card-tag-index"><%= tag %></div>
                   <div class="bellepou">
-                  <%= link_to item_tag_path(@item, Tag.find_by_name(tag)), method: :delete do %>
+                  <%= link_to item_tag_path(@item, Tag.find_by_name(tag)), method: :delete, remote: true do %>
                     <%= image_tag "trash-simple.svg"%>
                   <% end %>
                   </div>
-                </button>
               <% end %>
             </div>
           </div>
@@ -48,7 +48,7 @@
       </div>
         <div class="row">
         <div>
-          <%= simple_form_for [@item, @project_item] do |f| %>
+          <%= simple_form_for([@item, @project_item], remote: true) do |f| %>
               <p class="project-list"><%= f.input :project_id, policy_scope:"add a project", collection: current_user.projects %></p>
               <p class="project-button"><%= f.button :submit, "Add", class: "btn btn-primary" %></p>
           <% end %>
@@ -64,17 +64,17 @@
         <div class="row">
         <div>
         <div class="tags-projects">
-          <div class="tag-projects">
-            <% @item.project_items.each do |project_item| %>
-              <button><%= project_item.project.name %>
-                <div class="bellepou">
-                <%= link_to item_project_item_path(@item, project_item), method: :delete do %>
-                  <%= image_tag "trash-simple.svg"%>
-                <% end %>
-                </div>
-              </button>
-            <% end %>
-          </div>
+          <% @item.project_items.each do |project_item| %>
+            <div class="tag-projects">
+            <button><%= project_item.project.name %>
+              <div class="bellepou">
+              <%= link_to item_project_item_path(@item, project_item), remote: true, method: :delete do %>
+                <%= image_tag "trash-simple.svg"%>
+              <% end %>
+              </div>
+            </button>
+            </div>
+          <% end %>
         </div>
         </div>
       </div>

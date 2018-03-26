@@ -1,0 +1,6 @@
+<div class="card-tag-index"><%= tag %></div>
+<div class="bellepou">
+  <%= link_to item_tag_path(item, Tag.find_by_name(tag)), method: :delete, remote: true do %>
+    <%= image_tag "trash-simple.svg"%>
+  <% end %>
+</div>

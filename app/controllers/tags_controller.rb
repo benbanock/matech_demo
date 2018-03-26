@@ -15,7 +15,10 @@ class TagsController < ApplicationController
       @tag = Tag.new(tag_params)
       authorize @tag
       if @tag.save
-        redirect_to tags_path
+        respond_to do |format|
+          format.html { redirect_to tags_path }
+          format.js
+        end
       else
         render 'tags/index'
       end
@@ -27,8 +30,12 @@ class TagsController < ApplicationController
     authorize @item
     @tag = Tag.find(params[:id])
     @item.tag_list.remove(@tag.name)
-    @item.save
-    redirect_to item_path(@item)
+    if @item.save
+      respond_to do |format|
+        format.html { redirect_to item_path(@item) }
+        format.js
+      end
+    end
   end
 
   def tag_params
