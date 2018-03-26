@@ -48,15 +48,23 @@ class ItemsController < ApplicationController
   def like
     @item = Item.find(params[:id])
     authorize @item
-    @item.liked_by current_user
-    redirect_to items_path
+    if @item.liked_by current_user
+      respond_to do |format|
+        format.html { redirect_to items_path }
+        format.js
+      end
+    end
   end
 
   def dislike
     @item = Item.find(params[:id])
     authorize @item
-    @item.disliked_by current_user
-    redirect_to items_path
+    if @item.disliked_by current_user
+      respond_to do |format|
+        format.html { redirect_to items_path }
+        format.js
+      end
+    end
   end
 
   private
