@@ -1,9 +1,5 @@
-function addItem(item_url, item_title, user_id, images_url) {
-  // project_id = document.getElementById("user-project").value;
-  // console.log(item_url)
-  // console.log(item_title)
-  // console.log(image_url)
-  // console.log(user_id)
+function addItem(item_url, item_title, user_id, image_url) {
+
   fetch("http://localhost:3000/create_ext", {
     method: "POST",
     headers: {
@@ -15,36 +11,43 @@ function addItem(item_url, item_title, user_id, images_url) {
       item_url: item_url,
       item_title: item_title,
       user_id: user_id,
-      images_url: images_url
+      image_url: image_url
       // project_id: project_id,
     })
   })
   .then(response => response.json())
   .then((data) => {
     console.log(data);
+
+    // set the answer depending on create ext.
+    // display
   });
 };
-
 
 // Step 2 - get collected images from collect_images.js output + launch user info
 
 
-let images; let images_url
+let images; let image_url
 chrome.extension.onRequest.addListener(function(request, sender){
   console.log(request.type)
   if(request.type === 'collect_images'){
     images = request.images;
     // console.log(images);
     // showSections(request.images);
-    images_url = images[0].src
-    console.log(images_url)
+    image_url = images[0].src;
+    console.log(image_url);
     getUserInfo();
   }
 });
 
-// let image_url == images[]
-
-
+function displayImages(images){
+  if(images.length === 0 ) {
+    'nothing to display'
+  } else {
+    document.getElementById('selected-image').src = image_url;
+    document.getElementById('item-title').placeholder= item_title
+  }
+}
 // Step 3 - get user info + launch showSections
 
 
@@ -60,11 +63,8 @@ function getUserInfo() {
     projects.forEach((project) => {
       project = project.name;
     });
-    // pref_project_id = data.pref_project_id;
-    // pref_pricedrops = data.pref_pricedrops;
-    // console.log(own_lists);
-    // showSections(images);
   });
+  displayImages(images)
 };
 
 // Step 1 - get tab info + launch image collection
@@ -74,42 +74,30 @@ chrome.tabs.getSelected(null, function(tab){
   item_title = tab.title;
   chrome.tabs.executeScript(tab.id, {file:'collect_images.js'});
 });
+// document.addEventListener("DOMContentLoaded", () => {
+
+//   // set new project
+//   document.getElementById("user-list").addEventListener('change', () => {
+//     if (document.getElementById("user-list").value == -1) {
+//       document.getElementById("new-list-title").style.display = "block";
+//     }
+//     else {
+//       document.getElementById("new-list-title").style.display = "none";
+//     }
+//   })
+// });
+
+// launch the create function
 document.addEventListener("DOMContentLoaded", () => {
-  // function setTabsNav()
-  document.getElementById("save_tab").addEventListener('click', () => {
-    document.getElementById("save_tab").classList.add("active");
-    document.getElementById("send_tab").classList.remove("active");
-    document.getElementById("help_tab").classList.remove("active");
-    $("#wrap_add").show();
-    $("#save").show();
-    $("#send").hide();
-    $("#help").hide();
-    if (user_logged_in) {
-      $("#save-btn").show();
-    }
-  })
-  document.getElementById("send_tab").addEventListener('click', () => {
-    document.getElementById("save_tab").classList.remove("active");
-    document.getElementById("send_tab").classList.add("active");
-    document.getElementById("help_tab").classList.remove("active");
-    $("#wrap_add").show();
-    $("#save").hide();
-    $("#send").show();
-    $("#help").hide();
-    $("#save-btn").hide();
-  })
-  document.getElementById("help_tab").addEventListener('click', () => {
-    document.getElementById("save_tab").classList.remove("active");
-    document.getElementById("send_tab").classList.remove("active");
-    document.getElementById("help_tab").classList.add("active");
-    $("#wrap_add").hide();
-    $("#wrap_fail").hide();
-    $("#save").hide();
-    $("#send").hide();
-    $("#help").show();
-    $("#save-btn").hide();
-  })
-  // set new project
+  console.log("DOM fully loaded and parsed");
+  // Add here your addEventListener code
+  document.getElementById('item-title').placeholder= item_title
+  const create = document.getElementById("save-btn");
+  create.addEventListener("click", (event) => {
+    console.log(event);
+    console.log(document.getElementById('item-title').placeholder)
+    addItem(item_url, item_title, image_url, user_id);
+  });
   document.getElementById("user-list").addEventListener('change', () => {
     if (document.getElementById("user-list").value == -1) {
       document.getElementById("new-list-title").style.display = "block";
@@ -119,20 +107,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 });
-
-// launch the create function
-let image_url
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
-  // Add here your addEventListener code
-  const create = document.getElementById("save-btn");
-  create.addEventListener("click", (event) => {
-    console.log(event);
-    addItem(item_url, item_title, image_url, user_id);
-  });
-});
-
-// send back data to matech
-
-
 
