@@ -20,4 +20,12 @@ class ProjectPolicy < ApplicationPolicy
   def destroy?
     edit?
   end
+
+  def favorites?
+    return true
+  end
+
+  def recent?
+    return true
+  end
 end

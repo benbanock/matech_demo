@@ -2,9 +2,9 @@
   <div class="project-nav">
     <div class="row">
       <div class="project-groups">
-        <p><strong>All</strong></p>
+        <%= link_to "All", projects_path %>
         <p> | </p>
-        <%= link_to "Favorites", projectsfavorites_path %>
+        <p><strong>Favorites</strong></p>
         <p> | </p>
         <%= link_to "Recent", projectsrecent_path %>
       </div>
