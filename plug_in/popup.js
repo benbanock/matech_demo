@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   create.addEventListener("click", (event) => {
     console.log(event);
     project_id = document.getElementById("user-projects").value;
+    console.log(item_url, item_title,user_id, image_url,project_id);
     addItem(item_url, item_title,user_id, image_url,project_id);
   });
 });

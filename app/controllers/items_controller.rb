@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
     image_url = params[:image_url]
     project_id = params[:project_id]
     @item = Item.create(photo: image_url, url: item_url, name: item_title )
+    binding.pry
     @project_item = ProjectItem.create(project_id: project_id, item_id: @item.id)
 
     render json: {
