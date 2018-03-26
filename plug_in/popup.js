@@ -10,6 +10,7 @@ function addItem(item_url, item_title, user_id, images_url) {
       "Content-Type": "application/json"
     },
     credentials: 'same-origin',
+    // this line is to allow to push on my rails app through the plug_in
     body: JSON.stringify({
       item_url: item_url,
       item_title: item_title,
@@ -47,7 +48,7 @@ chrome.extension.onRequest.addListener(function(request, sender){
 // Step 3 - get user info + launch showSections
 
 
-let user_logged_in, user_id, projects, project_id;
+let user_logged_in, user_id, projects, project, project_id;
 function getUserInfo() {
   fetch("http://localhost:3000/json_to_send", { credentials: 'include' })
   .then(response => response.json())
@@ -56,6 +57,9 @@ function getUserInfo() {
     user_logged_in = data.logged_in;
     user_id = data.user_id;
     projects = data.projects;
+    projects.forEach((project) => {
+      project = project.name;
+    });
     // pref_project_id = data.pref_project_id;
     // pref_pricedrops = data.pref_pricedrops;
     // console.log(own_lists);
