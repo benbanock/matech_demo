@@ -52,4 +52,15 @@
         </div>
     </div>
   </div>
+
+  <div class="block-edit">
+    <%= simple_form_for(@project) do |f| %>
+      <div>
+        <p><%= f.input :client_first_name %></p>
+        <p><%= f.input :client_last_name %></p>
+        <p><%= f.input :client_email %></p>
+        <p><%= f.button :submit, "Modify", class: "btn btn-primary" %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

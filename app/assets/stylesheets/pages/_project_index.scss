@@ -1,7 +1,7 @@
 .project-nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  margin-bottom: 20px;
   align-items: center;
 }
 
@@ -46,6 +46,9 @@
   display: flex;
   margin: 20px 0px;
   align-items: center;
+  p {
+    margin: 0px;
+  }
 }
 
 .avatar-margin-left {
