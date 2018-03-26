@@ -1,5 +1,10 @@
 <div class="container">
-  <h2>Edit "<%= @project.name %>"</h2>
+  <div class="title-row">
+    <h2>Edit "<%= @project.name %>"</h2>
+    <%= link_to "Back", projects_path, class: "btn btn-primary btn-enlarge" %>
+  </div>
+
+
 
   <div class="block-container">
     <div class="block-edit">
@@ -10,23 +15,22 @@
           <p><%= f.button :submit, "Modify", class: "btn btn-primary" %></p>
         </div>
       <% end %>
-      <%= simple_form_for [@project, @user_project] do |f| %>
-        <div class="form-inlign">
-          <p><%= f.input :user_id, policy_scope:"add a user", label: false, collection: User.not_in_the_project(@project).map { |user| [user.full_name, user.id] } %></p>
-          <p><%= f.button :submit, "Add", class: "btn btn-primary" %></p>
-        </div>
-      <% end %>
       <div class="form-inlign button-inlign">
         <div class="button-stretch">
           <%= link_to "Delete", project_path(@project), method: :delete, class: "btn btn-danger btn-enlarge" %>
-          <%= link_to "Back", projects_path, class: "btn btn-primary btn-enlarge" %>
         </div>
       </div>
     </div>
 
     <div class="block-users">
-        <div class="row">
-          <h3>Team:</h3>
+        <div class="title-row">
+          <h3>Team</h3>
+          <%= simple_form_for [@project, @user_project] do |f| %>
+            <div class="form-inlign">
+              <p><%= f.input :user_id, policy_scope:"add a user", label: false, collection: User.not_in_the_project(@project).map { |user| [user.full_name, user.id] } %></p>
+              <p><%= f.button :submit, "Add", class: "btn btn-primary" %></p>
+            </div>
+          <% end %>
         </div>
         <div class="row">
           <% @project.user_projects.each do |user_project| %>
