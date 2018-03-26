@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   end
 
   resources :user_projects, only: [ :destroy ]
+  get "projectsfavorites", to: "projects#favorites", as: "projectsfavorites"
+  get "projectsrecent", to: "projects#recent", as: "projectsrecent"
 
   resources :tags, only: [:index, :show, :create]
   patch "items/:id/like", to: "items#like", as: :like
