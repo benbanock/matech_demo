@@ -28,4 +28,9 @@ class ProjectPolicy < ApplicationPolicy
   def recent?
     return true
   end
+
+  def mailtoclient?
+    edit?
+  end
+
 end

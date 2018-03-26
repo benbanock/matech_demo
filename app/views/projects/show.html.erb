@@ -9,10 +9,12 @@
           <%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %>
         <% end %>
       </div>
-      <div class="email-sender">
-        <p>To client </p>
-        <i class="far fa-share-square avatar-margin-left"></i>
-      </div>
+      <%= link_to project_sendmail_path(@project) do %>
+        <div class="email-sender">
+          <p>To client </p>
+          <i class="far fa-share-square avatar-margin-left"></i>
+        </div>
+      <% end %>
     </div>
   </div>
 

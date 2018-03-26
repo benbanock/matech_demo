@@ -66,6 +66,13 @@ class ProjectsController < ApplicationController
     authorize @project
   end
 
+  def mailtoclient
+    @project = Project.find(params[:project_id])
+    authorize @project
+    UserMailer.welcome(@project).deliver_now
+    redirect_to project_path(@project)
+  end
+
   private
 
   def project_params
