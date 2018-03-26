@@ -25,8 +25,8 @@ class ItemsController < ApplicationController
     # request.body
     item_url = params[:item_url],
     item_title = params[:item_title]
-    images_url = params[:images_url]
-    @item = Item.create(photo: "images_url",url: item_url, name: item_title )
+    images_url = params[:image_url]
+    @item = Item.create(photo: image_url,url: item_url, name: item_title )
 
     render json: {
       status: 200
