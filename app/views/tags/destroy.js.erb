@@ -9,5 +9,5 @@ function destroyTag() {
 <% if request.referrer.include?('tags') %>
   destroyTag();
 <% else %>
-  refreshTag('<%= j render "items/tag", item:@item %>');
+  refreshTag('<%= j render "items/tag", item: @item, tag:  %>');
 <% end %>
