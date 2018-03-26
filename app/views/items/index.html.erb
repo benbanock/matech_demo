@@ -8,7 +8,7 @@
         <% photo = cl_image_path item.photo, width: 700, height: 600, crop: :fill %>
       <% end %>
       <div class="col-xs-12 col-md-4">
-        <div class="card" id= <%= "#{item.id}" %> style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
+        <div class="card box-shadow" id= <%= "#{item.id}" %> style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
           <%= link_to "", item_path(item), class: "card-link"%>
           <% if item.get_likes.where(voter_id: current_user).count == 0 %>
             <%= link_to like_path(item), remote: true, method: :patch, class: "card-like-link" do%>
@@ -37,3 +37,8 @@
     <% end %>
   </div>
 </div>
+<%= render 'shared/footer' %>
+
+
+
+

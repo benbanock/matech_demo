@@ -3,12 +3,13 @@
   height: 300px;
   background-size: cover;
   position: relative;
-  cursor: pointer;
   overflow: hidden;
+  border-radius: 8px;
     .tagshover {
     position: absolute;
     bottom: -300px;
     background-color: white;
+    opacity: 0.8;
     width: 100%;
     h1 {
       font-size: 20px;
@@ -25,7 +26,7 @@
       bottom: 0;
       background-color: white;
       width: 100%;
-      transition: bottom .3s ease;
+      transition: bottom .5s ease;
       h1 {
         font-size: 17px;
         margin: 10px;
@@ -37,11 +38,18 @@
         color: rgb(120, 120, 120);
       }
       .btn {
+        border-color: #878787;
+        border-size: 9px;
         margin: 10px;
+        color: #878787;
+        background-color: transparent;
         position: relative;
         left: 31%;
         bottom: -21px;
-
+        &:hover {
+          background-color: #a3a3a3;
+          color: white;
+        }
       }
     }
   }
@@ -54,4 +62,12 @@
     font-size: 20px;
   }
 }
+
+.box-shadow {
+  transition: box-shadow .3s ease-in-out;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.16);
+  }
+}
+
 
