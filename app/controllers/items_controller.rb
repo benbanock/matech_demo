@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  skip_after_action :verify_authorized, only: :create_ext
+  skip_before_action :authenticate_user!, only: :create_ext
+  skip_before_action :verify_authenticity_token, only: :create_ext
 
   def index
     @items = policy_scope(Item)
@@ -14,6 +17,20 @@ class ItemsController < ApplicationController
     @project_item = ProjectItem.new
     authorize @item
     @tag = Tag.new
+  end
+
+  def create_ext
+    p params
+    p current_user
+    # request.body
+    item_url = params[:item_url],
+    item_title = params[:item_title]
+    images_url = params[:images_url]
+    @item = Item.create(photo: "images_url",url: item_url, name: item_title )
+
+    render json: {
+      status: 200
+    }
   end
 
   def destroy
