@@ -1,1 +1,18 @@
+.email-sender {
+  display: flex;
+  margin: 20px 0px;
+  align-items: center;
+  box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
+  color: rgba(150, 150, 150, 1.0);
+  padding: 5px 10px;
+  border-radius: 10px;
+  p {
+    margin: 0px;
+  }
+}
 
+.collab-mail-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

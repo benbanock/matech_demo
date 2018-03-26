@@ -1,14 +1,18 @@
 <div class="container">
-  <h2>Project: "<%= @project.name %>"</h2>
+  <h3>Project: "<%= @project.name %>"</h3>
 
   <div class="row">
-    <div>
-      <p>Shared with </p>
-    </div>
-    <div>
-      <% @project.users.each do |user| %>
-        <%= image_tag user.picture, class: "avatar-extra-small" %>
-      <% end %>
+    <div class="collab-mail-bar">
+      <div class="collaborator-block">
+        <p>Shared with </p>
+        <% @project.users.each do |user| %>
+          <%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %>
+        <% end %>
+      </div>
+      <div class="email-sender">
+        <p>To client </p>
+        <i class="far fa-share-square avatar-margin-left"></i>
+      </div>
     </div>
   </div>
 
