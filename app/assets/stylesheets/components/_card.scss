@@ -5,12 +5,30 @@
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-    .tagshover {
+  .card-tag-index {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    max-width: 85px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 10px;
+    font-size: 14px;
+  }
+  .tagshover {
     position: absolute;
     bottom: -300px;
     background-color: white;
     opacity: 0.8;
     width: 100%;
+    .tag-index {
+      display: flex;
+    }
     h1 {
       font-size: 20px;
       margin: 20px;
@@ -56,8 +74,8 @@
   .card-like-link {
     z-index: 3;
     position: absolute;
-    bottom: 5px;
-    right: 3px;
+    bottom: 15px;
+    right: 15px;
     color: #ffe100;
     font-size: 20px;
   }
