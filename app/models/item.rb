@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   acts_as_taggable_on :tags
   acts_as_votable
   include PgSearch
-  mount_uploader :photo, PhotoUploader
+  # mount_uploader :photo, PhotoUploader
   pg_search_scope :global_search, {
     against: [ :name ],
     associated_against: {
