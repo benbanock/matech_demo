@@ -1,0 +1,6 @@
+function refreshCard(outerHTML) {
+  const item = document.getElementById(<%= @item.id %>);
+  item.outerHTML = outerHTML;
+}
+
+refreshCard('<%= j render "items/card", item:@item %>');
