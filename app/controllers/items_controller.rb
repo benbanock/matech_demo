@@ -20,13 +20,12 @@ class ItemsController < ApplicationController
   end
 
   def create_ext
-    p params
-    p current_user
-    # request.body
     item_url = params[:item_url],
     item_title = params[:item_title]
-    images_url = params[:image_url]
-    @item = Item.create(photo: image_url,url: item_url, name: item_title )
+    image_url = params[:image_url]
+    project_id = params[:project_id]
+    @item = Item.create(photo: image_url, url: item_url, name: item_title )
+    @project_item = ProjectItem.create(project_id: project_id, item_id: @item.id)
 
     render json: {
       status: 200
