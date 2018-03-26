@@ -6,6 +6,18 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects
   end
 
+  def favorites
+    @project = Project.new
+    authorize @project
+    @projects = current_user.projects.where(status: "favorite")
+  end
+
+  def recent
+    @project = Project.new
+    authorize @project
+    @projects = current_user.projects
+  end
+
   def create
     @project = Project.new(project_params)
     @project.date = Time.now

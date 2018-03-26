@@ -1,0 +1,16 @@
+// app/views/reviews/create.js.erb
+// Here you generate *JavaScript* that would be executed in the browser
+function refreshCard(outerHTML) {
+  const item = document.getElementById(<%= @item.id %>);
+  item.outerHTML = outerHTML;
+}
+function destroyCard() {
+  const item = document.getElementById(<%= @item.id %>).parentNode;
+  item.remove();
+}
+<% if request.referrer.include?('favorites') %>
+  destroyCard();
+<% else %>
+  refreshCard('<%= j render "items/card", item:@item %>');
+<% end %>
+
