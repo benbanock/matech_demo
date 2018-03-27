@@ -1,0 +1,7 @@
+function refreshCard(innerHTML) {
+  const projectItems = document.querySelector(".tags-projects");
+  projectItems.insertAdjacentHTML('beforeend', innerHTML);
+}
+
+refreshCard('<%= j render "items/button", project_item: @project_item %>');
+

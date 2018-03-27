@@ -3,8 +3,10 @@
 
 
 // Define fonts for body and headers
-$body-font: "Maple-Regular", "Helvetica", "sans-serif";
-$headers-font: "Maple-Regular", "Helvetica", "sans-serif";
+$body-font: "Aqua", "Helvetica", "sans-serif";
+$headers-font: "Aqua", "Helvetica", "sans-serif";
+$h1-font: "Neue", "Helvetica", "sans-serif";
+
 
 @font-face {
   font-family: "Aqua";
@@ -24,6 +26,11 @@ $headers-font: "Maple-Regular", "Helvetica", "sans-serif";
 @font-face {
   font-family: "pier";
   src: font-url('assets/pier.otf');
+}
+
+@font-face {
+  font-family: "Neue";
+  src: font-url('assets/Neue.ttf');
 }
 
 // To use a font file (.woff) uncomment following lines

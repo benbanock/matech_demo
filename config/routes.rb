@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :projects, only: [ :create, :index, :show, :update, :edit, :destroy ] do
     resources :user_projects, only: [ :create ]
+    get "sendmail", to: "projects#mailtoclient", as: "sendmail"
   end
   devise_for :users
 

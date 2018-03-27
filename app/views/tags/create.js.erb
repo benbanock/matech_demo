@@ -1,0 +1,6 @@
+function addTag(newTagHTML) {
+  const tagContainer = document.querySelector(".tag-index");
+  tagContainer.insertAdjacentHTML("beforeend", newTagHTML);
+}
+
+addTag("<%= j render 'items/tag', item: @item, tag: @tag %>");

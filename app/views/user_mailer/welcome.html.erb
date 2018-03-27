@@ -1,0 +1,8 @@
+<h2>Welcome to Matech</h2>
+
+<p>Hi <%= @project.client_first_name %> <%= @project.client_last_name %>,</p>
+
+<p>I want to give you access to the Matech project "<%= @project.name %>"</p>
+
+<p>Best regards</p>
+<p><%= @project.users.first.first_name %> <%= @project.users.first.last_name %></p>

@@ -5,6 +5,21 @@
   flex-wrap: wrap;
 }
 
+.title-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    margin: 0px;
+    font-size: 25px;
+  }
+}
+
 .block-edit {
   background-color: white;
   padding: 20px;
@@ -34,11 +49,13 @@
   @media (min-width: 992px) {
     flex: 0 0 65%;
   }
+  .title-row {
+    margin-bottom: 10px;
+  }
 }
 
 .form-inlign {
   display: flex;
-  padding: 20px 10px;
 }
 
 .form-inlign p {

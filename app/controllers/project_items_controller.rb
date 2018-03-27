@@ -5,17 +5,25 @@ class ProjectItemsController < ApplicationController
     authorize @project_item
     @project_item.item = Item.find(params[:item_id])
     @project.date = Time.now
-    @project_item.save
     @project.save
-    redirect_to item_path(params[:item_id])
+    if @project_item.save
+      respond_to do |format|
+        format.html { redirect_to item_path(params[:item_id]) }
+        format.js
+      end
+    end
   end
 
   def destroy
     @item = Item.find(params[:item_id])
     @project_item = ProjectItem.find(params[:id])
     authorize @project_item
-    @project_item.destroy
-    redirect_to item_path(@item)
+    if @project_item.destroy
+      respond_to do |format|
+        format.html { redirect_to item_path(@item) }
+        format.js
+      end
+    end
   end
 
   private

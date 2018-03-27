@@ -31,9 +31,14 @@
                 <% end %>
               </div>
               <div class="card-project-name">
-                <%=link_to project_path(project) do %>
-                  <h3><%= project.name %></h3>
-                <% end %>
+                <div class="card-project-name-sister">
+                  <%=link_to project_path(project) do %>
+                    <h3><%= project.name %></h3>
+                  <% end %>
+                  <%= link_to edit_project_path(project) do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                </div>
                 <% if (Time.now - project.date).to_i / 3600 >= 24 %>
                   <p><em>Last update: <%= project.date.strftime("%d-%m-%y") %> (<%= (Time.now - project.date).to_i / (24 * 3600) %>d)</em></p>
                 <% else %>
@@ -45,7 +50,6 @@
                     <%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %>
                   <% end %>
                 </div>
-                <p><%= link_to "Edit", edit_project_path(project), class: "btn btn-primary" %></p>
               </div>
             </div>
           </div>
