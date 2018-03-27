@@ -1,14 +1,6 @@
-function refreshCard(innerHTML) {
-  const projectItems = document.querySelector(".tags-projects");
-  projectItems.insertAdjacentHTML('beforeend', innerHTML);
-}
 function destroyCard() {
-  const projectItems = document.querySelector(".tags-projects").parentNode;
+  const projectItems = document.querySelector("[data-project-item-id='<%= @project_item.id %>']");
   projectItems.remove();
 }
 
-<% if request.referrer.include?('show') %>
-  destroyCard();
-<% else %>
-  refreshCard('<%= j render "items/button", project_item: @project_item %>');
-<% end %>
+destroyCard();

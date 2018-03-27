@@ -10,7 +10,11 @@ class TagsController < ApplicationController
       authorize @item
       @item.tag_list.add(tag_params[:name])
       @item.save
-      redirect_to item_path(@item)
+      respond_to do |format|
+        format.html { redirect_to item_path(@item) }
+        @tag = Tag.find_by_name(tag_params[:name])
+        format.js
+      end
     else
       @tag = Tag.new(tag_params)
       authorize @tag
@@ -30,11 +34,10 @@ class TagsController < ApplicationController
     authorize @item
     @tag = Tag.find(params[:id])
     @item.tag_list.remove(@tag.name)
-    if @item.save
-      respond_to do |format|
-        format.html { redirect_to item_path(@item) }
-        format.js
-      end
+    @item.save
+    respond_to do |format|
+      format.html { redirect_to item_path(@item) }
+      format.js
     end
   end
 

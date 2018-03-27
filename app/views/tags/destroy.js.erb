@@ -1,13 +1,6 @@
-function refreshTag(outerHTML) {
-  const tag = document.querySelector(".card-tag-index");
-  tag.outerHTML = outerHTML;
-}
 function destroyTag() {
-  const tag = document.querySelector(".bellepou").parentNode;
+  const tag = document.querySelector("[data-tag-id='<%= @tag.id %>']");
   tag.remove();
 }
-<% if request.referrer.include?('tags') %>
-  destroyTag();
-<% else %>
-  refreshTag('<%= j render "items/tag", item: @item, tag:  %>');
-<% end %>
+
+destroyTag();
