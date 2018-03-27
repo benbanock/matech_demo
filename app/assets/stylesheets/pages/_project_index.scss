@@ -28,16 +28,22 @@
 .card-project-element {
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .card-project-photo {
-  width: 30%;
+  width: 180px;
 }
 
 .card-project-name {
   width: 60%;
   margin-right: 5%;
+  h3 {
+    font-size: 22px !important;
+  }
+  p {
+   font-size: 14px !important;
+  }
 }
 
 .card-project-name-sister {
@@ -48,19 +54,24 @@
   i {
     color: black !important;
   }
+  a {
+    color: rgb(30, 30, 30);
+    text-decoration: none !important;
+  }
 }
 
 .photo-project {
-  height: 180px;
-  width: 180px;
+  width: 170px;
+  height: 170px;
   padding: 15px 15px;
   margin-left: 10px;
-  border-radius: 50%;
+  border-radius: 5%;
   background-size: cover;
 }
 
 .collaborator-block {
   display: flex;
+  flex-wrap: wrap;
   margin: 20px 0px;
   align-items: center;
   p {
@@ -70,4 +81,19 @@
 
 .avatar-margin-left {
   margin-left: 10px;
+}
+
+.lien-nav {
+  margin: 0px 5px;
+  color: rgb(150, 150, 150);
+  &:hover {
+    color: rgb(50, 50, 50);
+    text-decoration: none;
+  }
+}
+
+.lien-nav-actif {
+  margin: 0px 5px;
+  color: black;
+  font-weight: bolder;
 }

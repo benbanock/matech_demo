@@ -23,8 +23,7 @@
   .tagshover {
     position: absolute;
     bottom: -300px;
-    background-color: white;
-    opacity: 0.8;
+    background-color: rgba(255, 255, 255, 0.85);
     width: 100%;
     .tag-index {
       display: flex;
@@ -38,7 +37,7 @@
     }
   }
   &:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.85);
     .tagshover {
       position: absolute;
       bottom: 0;
@@ -53,7 +52,7 @@
       p {
         font-size: 15px;
         margin: 20px;
-        color: rgb(120, 120, 120);
+        color: rgba(120, 120, 120, 1);
       }
       .btn {
         border-color: #878787;

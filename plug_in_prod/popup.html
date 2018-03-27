@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <div id="main">
+    <div id=" main">
       <!-- header of the plug_in -->
-      <div class="menu">
         <!-- should display the title and give the opportunity to have it modified -->
-        <a href="http://mattech.tech/" id="menu-logo" target="_blank" <i class="fa fa-square" aria-hidden="true"></i>
-        </a>
-        <a href="http://mattech.tech/projects" id="menu-login" target="_blank">My projects</a>
+      <div class="menu" >
+          <a href="http://mattech.tech/" id="menu-logo" target="_blank">
+            <img src="images/logo.png" alt="" style="width:25px;">
+          </a>
+          <a href="http://mattech.tech/projects" id="menu-login" target="_blank">My projects</a>
       </div>
+        <div id="menu-title" class="centered">
+          <input id="item-title" type="text" placeholder="item_title" />
+        </div>
       <!-- bouton save or sign in if not -->
-      <section>
-        <button id="save-btn" type="button" class="btnSubmit">SAVE</button>
+      <section class="centered">
+        <button id="save-btn" type="button" class="btnSubmit" style="margin-top: 20px;">SAVE</button>
         <p id="login-msg" style="display:none">Please<a href="http://mattech.tech/users/sign_in" target="_blank">connect to your account </a>to go on! </p>
         <div id="send-btn" type="button" style="display:none" class="btn btn-primary">send</div>
       </section>
@@ -22,17 +26,8 @@
       <section>
         <div id="content">
           <section id="wrap_add">
-            <div id="selected">
-              <div id="left_nav" class="image_nav">
-                <button><span>&lt;</span></button>
-              </div>
-              <img id="selected_image" />
-              <div id="right_nav" class="image_nav">
-                <button><span>&gt;</span></button>
-              </div>
-            </div>
-            <div id="selected-image-number">
-              <span id="selected-image-number-1">1</span> /   <span id="selected-image-number-2">1</span>
+            <div class="centered">
+              <img id="selected-image" scr = "" />
             </div>
           </section>
           <!-- if there is a fail -->
@@ -45,21 +40,19 @@
               <p>you can still save the link</p>
             </div>
           </section>
-          <section id="help" style="display: none;">
-            <p>help yourself</p>
-          </section>
           <div class="description" id="save">
             <!-- <p class="guidelines">2. Modifiez les informations du produit (optionnel)</p> -->
-            <input id="img-title" type="text" placeholder="Add a title for this thing" />
-            <select id="user-list" size="1">
+
+            <select id="user-projects" size="1">
               <option label="Créer une nouvelle liste" id="new" value="-1">
               </option>
-              <optgroup label="projects" id="every_project">
-              </optgroup>
-              <optgroup label="inspiration" id="inspiration">
-              </optgroup>
             </select>
           </div>
+          <div>
+            <input id="tag-title" type="text" placeholder="Add tag" />
+            <ul id="display_tag"></ul>
+          </div>
+
         </div>
       </section>
     </div>
