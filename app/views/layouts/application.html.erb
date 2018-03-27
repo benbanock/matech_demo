@@ -15,7 +15,6 @@
     <% if !current_page?(root_path) %>
       <%= render 'shared/navbar' %>
     <% end %>
-    <%#= render 'shared/navbar', except: "pages/home.html.erb" %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
