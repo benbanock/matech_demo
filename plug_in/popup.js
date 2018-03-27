@@ -19,6 +19,9 @@ function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   .then(response => response.json())
   .then((data) => {
     console.log(data);
+    if(data.status == "ok") {
+      document.getElementById("save-btn").innerText = "done";
+    }
 
     // set the answer depending on create ext.
     // display
@@ -88,18 +91,34 @@ chrome.tabs.getSelected(null, function(tab){
 // });
 
 // launch the create function
+let tags = [];
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
   // Add here your addEventListener code
   document.getElementById("user-projects").addEventListener('change', () => {
   });
+
+  document.getElementById("tag-title").addEventListener('keydown', () => {
+    console.log(event.key)
+    if(event.key === "Enter") {
+      let word = document.getElementById("tag-title").value;
+      tags.push(word)
+      let list = document.getElementById("display_tag");
+      list.insertAdjacentHTML( "beforeend", `<li> ${word} </li>`);
+      document.getElementById("tag-title").value = ""
+      console.log(tags)
+    }
+
+
+  });
+
   document.getElementById('item-title').placeholder= item_title
   const create = document.getElementById("save-btn");
   create.addEventListener("click", (event) => {
     console.log(event);
     project_id = document.getElementById("user-projects").value;
     console.log(item_url, item_title,user_id, image_url,project_id);
-    addItem(item_url, item_title,user_id, image_url,project_id);
+    addItem(item_url, item_title,user_id, image_url,project_id, tags);
   });
 });
 
