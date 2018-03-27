@@ -1,3 +1,6 @@
+.big-area {
+  margin-top: 15px;
+}
 .photoshow {
   background-size: cover;
   height: 80vh;
@@ -15,15 +18,89 @@
 
 }
 .project-area-show {
-  margin-bottom: 10px;
   .form-projects {
     margin-bottom: 10px;
   }
   .tags-projects {
-    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
   }
 }
-
-.tag-area-show-area-show {
-  margin-bottom: 10px;
+.tags-projects .tag-projects {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: #FFDBDB;
+  border-radius: 13px;
+  padding: 5px 5px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  .bellepou {
+    background-color: #665e5e;
+    border-radius: 50%;
+    width: 23px;
+    text-align: center;
+    margin-left: 10px;
+    font-size: 17px;
+  }
+  a {
+    color: #FFDBDB;
+    font-weight: lighter;
+  }
+}
+.tag-area-show .tag-index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+.tag-index .tag-tags {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: #edeaea;
+  border-radius: 13px;
+  padding: 5px 5px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  .bellepou {
+    background-color: #665e5e;
+    border-radius: 50%;
+    width: 23px;
+    text-align: center;
+    margin-left: 10px;
+    font-size: 17px;
+  }
+  a {
+    color: #edeaea;
+    font-weight: lighter;
+  }
+}
+.website-area-show a {
+  color: #333333;
+  font-weight: bolder;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+.scd-row input {
+  margin: 20px;
+  padding: 1px 13px;
+  border-radius: 9px;
+  color: rgb(110, 110, 110);
+}
+.scd-row a {
+  margin: 20px;
+  padding: 1px 13px;
+  border-radius: 9px;
+  color: rgb(110, 110, 110);
 }

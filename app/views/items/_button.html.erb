@@ -1,9 +1,9 @@
 <div class="tag-projects" data-project-item-id="<%= project_item.id %>">
-  <button><%= project_item.project.name %>
+  <div class="project-name"><%= project_item.project.name %></div>
     <div class="bellepou">
     <%= link_to item_project_item_path(project_item.item, project_item), remote: true, method: :delete do %>
-      <%= image_tag "trash-simple.svg"%>
+      <i class="fas fa-times"></i>
     <% end %>
     </div>
-  </button>
 </div>
+
