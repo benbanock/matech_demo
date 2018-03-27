@@ -72,6 +72,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
     authorize @project
     UserMailer.welcome(@project).deliver_now
+    # @user = User.invite!(email: @project.client_email) #to send email invitation with Devise Invitable
+    # UserProject.create(project: @project, user: @user) #to send email invitation with Devise Invitable
     redirect_to project_path(@project)
   end
 
