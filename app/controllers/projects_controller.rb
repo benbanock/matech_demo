@@ -22,7 +22,9 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.date = Time.now
     authorize @project
-    @project.save
+    if !@project.save
+      return redirect_to projects_path
+    end
     @tag = Tag.new
     @tag.name = @project.name
     @tag.save
