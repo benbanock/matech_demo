@@ -1,0 +1,28 @@
+<svg width="48" height="46" viewBox="0 0 48 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Matech 4</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(68 -223)">
+<g id="Matech 4">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(-28 253)" fill="#168BF7"/>
+</g>
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(-68 223)" fill="#303033"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(-63 247)" fill="#303033"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path3_fill" transform="translate(-46 249)" fill="#303033"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 2 4C 3.10457 4 4 3.10457 4 2C 4 0.89543 3.10457 0 2 0C 0.89543 0 0 0.89543 0 2C 0 3.10457 0.89543 4 2 4Z"/>
+<path id="path1_fill" d="M 34 43C 34 43.552 33.551 44 33 44L 3 44C 2.449 44 2 43.552 2 43L 2 22C 2 21.448 2.449 21 3 21L 33 21C 33.551 21 34 21.448 34 22L 34 26L 36 26L 36 22C 36 20.346 34.654 19 33 19L 30 19L 30 16.5C 30 15.673 29.327 15 28.5 15L 27 15L 27 9C 27 4.037 22.962 0 18 0C 13.038 0 9 4.037 9 9L 9 15L 7.5 15C 6.673 15 6 15.673 6 16.5L 6 19L 3 19C 1.346 19 0 20.346 0 22L 0 43C 0 44.654 1.346 46 3 46L 33 46C 34.654 46 36 44.654 36 43L 36 39L 34 39L 34 43ZM 28 19L 24 19L 24 17L 28 17L 28 19ZM 11 9C 11 5.141 14.14 2 18 2C 21.86 2 25 5.141 25 9L 25 15L 23.5 15C 22.673 15 22 15.673 22 16.5L 22 19L 14 19L 14 16.5C 14 15.673 13.327 15 12.5 15L 11 15L 11 9ZM 8 17L 12 17L 12 19L 8 19L 8 17Z"/>
+<path id="path2_fill" d="M 0 1.5L 0 6L 2 6L 2 2L 6 2L 6 0L 1.5 0C 0.673 0 0 0.673 0 1.5Z"/>
+<path id="path3_fill" d="M 20 0C 17.033 0 14.569 2.167 14.09 5L 0 5L 0 11L 2 11L 2 7L 4 7L 4 9L 6 9L 6 7L 14.09 7C 14.568 9.833 17.032 12 20 12C 23.309 12 26 9.309 26 6C 26 2.691 23.309 0 20 0ZM 20 10C 17.794 10 16 8.206 16 6C 16 3.794 17.794 2 20 2C 22.206 2 24 3.794 24 6C 24 8.206 22.206 10 20 10Z"/>
+</defs>
+</svg>
