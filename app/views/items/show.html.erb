@@ -58,31 +58,30 @@
       </div>
     </div>
   </div>
-    <div class="col-xs-12 col-sm-6">
+  <div class="col-xs-12 col-sm-6">
     <div class="show-project">
       <div class="title">
         <h4>Item already assigned to the following projects:</h4>
       </div>
-        <div class="row">
-        <div>
+      <div class="row">
         <div class="tags-projects">
           <% @item.project_items.each do |project_item| %>
             <div class="tag-projects" data-project-item-id="<%= project_item.id %>">
-            <button><%= project_item.project.name %>
-              <div class="bellepou">
-              <%= link_to item_project_item_path(@item, project_item), remote: true, method: :delete do %>
-                <%= image_tag "trash-simple.svg"%>
-              <% end %>
-              </div>
-            </button>
+              <button><%= project_item.project.name %>
+                <div class="bellepou">
+                  <%= link_to item_project_item_path(@item, project_item), method: :delete do %>
+                    <%= image_tag "trash-simple.svg"%>
+                  <% end %>
+                </div>
+              </button>
             </div>
           <% end %>
-        </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-xs-12">
+</div>
+<div class="col-xs-12">
     <div class="scd-row">
       <%= button_to "Back", items_path, :class => "btn btn-danger", :method => :get %>
       <%= link_to item_path(@item), method: :delete do %>

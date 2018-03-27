@@ -7,6 +7,11 @@ body {
   background-color:#41505A;
 }
 
+h1::after {
+  content:"";
+  order-bottom: 1px solid #495865;
+}
+
 .centered {
   display: flex;
   justify-content: center;
