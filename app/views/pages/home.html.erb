@@ -1,7 +1,9 @@
 <div class="wrapper">
-  <div class="home-banner">
-    <h2><strong>BIENVENUE SUR MATECH</strong></h2>
-    <%= link_to "Enter >>", items_path, class: "new-button"%>
+  <div class="home-banner-1">
+    <div class= "background_banner">
+      <h2><strong>BIENVENUE SUR MATECH</strong></h2>
+      <%= link_to "Enter >>", items_path, class: "home-button"%>
+    </div>
   </div>
     <div class="container" style="padding-bottom: 50px">
       <ul>
@@ -24,13 +26,17 @@
               </div>
               <div class="col-sm-3 col-xs-6">
                 <%= image_tag 'Artboard 11.svg', height: 80, width: 80, class: "grey"  %>
-                <h4 style="padding-top: 10px"><em>Une couverture sur tout le territoire</h4><p style="padding-top: 15px">Un service souhaité par les ministères de l'Education Nationale et de l'Enseignement Supérieur</em></p>
+                <h4 style="padding-top: 10px">Une couverture sur tout le territoire</h4><p style="padding-top: 15px">Un service souhaité par les ministères de l'Education Nationale et de l'Enseignement Supérieur</em></p>
               </div>
             </div>
           </div>
         </div>
-      </ul>
-
+    </div>
+  </div>
+  <div class="home-banner-2">
+    <div class= "background_banner">
+      <p><strong>90 days free-trial </strong></p>
+      <%= link_to "SIGN-UP >>", items_path, class: "home-button-2"%>
     </div>
   </div>
 </div>
