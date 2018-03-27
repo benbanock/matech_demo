@@ -1,16 +1,122 @@
 // Specific CSS for your home-page
-.home-banner {
-  background-image: linear-gradient(-225deg, rgba(0,0,0,0.9) 0%, rgba(0,30,0,0.6) 10%),asset-url('home2.jpg');
+
+.home-banner-1 {
+  background-image: asset-url('home2.jpg');
   background-size: cover;
-  height: 100vh;
-  color: #eee;
+  height: 700px;
+  color: black;
   justify-content: center;
   text-align: center;
-  padding-top: 40vh;
+  padding-top: 30vh;
+  font-family: Neue;
   p {
-    margin-bottom: 50px;
+    margin-bottom: 5px;
+    font-family: Neue;
   }
   h2 {
-    margin-bottom: 30px;
+    font-family: Neue;
+    margin-bottom: 3px;
+    font-size: 48px;
+  }
+}
+
+#cards-home {
+  h3 {
+  font-family:Neue;
+  font-size: 32px;
+  }
+  h4 {
+  font-family:Neue;
+  font-size: 24px;
+  }
+  p {
+  font-family:Neue;
+  font-size: 16px;
+  }
+}
+
+.background_banner {
+  padding-top: 6vh;
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.home-banner-2 {
+  background-image: asset-url('home2.jpg');
+  background-size: cover;
+  height: 400px;
+  color: black;
+  justify-content: center;
+  text-align: center;
+  padding-top: 30vh;
+  font-family: Neue;
+  p {
+    margin-bottom: 5px;
+    font-family: Neue;
+  }
+  h2 {
+    font-family: Neue;
+    margin-bottom: 3px;
+    font-size: 48px;
+  }
+}
+
+.background_banner-2 {
+  padding-top: 6vh;
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+
+.home-button {
+  display: inline-block;
+  padding: 19px 65px 19px 70px;
+  cursor: pointer;
+  vertical-align: top;
+  text-decoration: none;
+  color: #191919;
+  border: 3px solid #191919;
+  background-color: white;
+  text-align: center;
+  font-size: 0.75em;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  line-height: 190%;
+  &:hover{
+    color: #191919;
+    background-color: transparent;
+    text-decoration:none;
+  }
+}
+
+
+
+
+.home-button-2 {
+display: inline-block;
+  cursor: pointer;
+  vertical-align: top;
+  text-decoration: none;
+  color: #191919;
+  background-color: white;
+  text-align: center;
+  font-size: 0.75em;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  line-height: 100%;
+  &:hover{
+    color: #191919;
+    background-color: transparent;
+    text-decoration:none;
   }
 }
