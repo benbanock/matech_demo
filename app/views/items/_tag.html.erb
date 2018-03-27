@@ -1,8 +1,8 @@
-<div data-tag-id="<%= tag.id %>">
+<div class="tag-tags" data-tag-id="<%= tag.id %>">
   <div class="card-tag-index"><%= tag.name %></div>
     <div class="bellepou">
     <%= link_to item_tag_path(item, tag), method: :delete, remote: true do %>
-      <%= image_tag "trash-simple.svg"%>
+      <i class="fas fa-times"></i>
     <% end %>
   </div>
 </div>
