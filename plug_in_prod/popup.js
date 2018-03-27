@@ -1,6 +1,6 @@
 function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   console.log(project_id)
-   fetch("http://mattech.tech/create_ext", {
+   fetch("http://www.mattech.tech/create_ext", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -20,7 +20,7 @@ function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   .then((data) => {
     console.log(data);
     if(data.status == "ok") {
-      document.getElementById("save-btn").innerText = "Done";
+      document.getElementById("save-btn").innerText = "DONE";
     }
 
     // set the answer depending on create ext.
