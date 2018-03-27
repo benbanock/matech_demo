@@ -63,19 +63,19 @@
       </div>
         <div class="row">
         <div>
-        <div class="tags-projects">
-          <div class="tag-projects">
-            <% @item.project_items.each do |project_item| %>
-              <button><%= project_item.project.name %>
-                <div class="bellepou">
-                <%= link_to item_project_item_path(@item, project_item), method: :delete do %>
-                  <%= image_tag "trash-simple.svg"%>
-                <% end %>
-                </div>
-              </button>
-            <% end %>
+          <div class="tags-projects">
+            <div class="tag-projects">
+              <% @item.project_items.each do |project_item| %>
+                <button><%= project_item.project.name %>
+                  <div class="bellepou">
+                  <%= link_to item_project_item_path(@item, project_item), method: :delete do %>
+                    <%= image_tag "trash-simple.svg"%>
+                  <% end %>
+                  </div>
+                </button>
+              <% end %>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-function addItem(item_url, item_title, user_id, image_url, project_id) {
+function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   console.log(project_id)
    fetch("http://localhost:3000/create_ext", {
     method: "POST",
@@ -13,6 +13,7 @@ function addItem(item_url, item_title, user_id, image_url, project_id) {
       user_id: user_id,
       image_url: image_url,
       project_id: project_id,
+      tags: tags
     })
   })
   .then(response => response.json())
