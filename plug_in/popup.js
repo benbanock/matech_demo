@@ -20,7 +20,7 @@ function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   .then((data) => {
     console.log(data);
     if(data.status == "ok") {
-      document.getElementById("save-btn").innerText = "done";
+      document.getElementById("save-btn").innerText = "Done";
     }
 
     // set the answer depending on create ext.

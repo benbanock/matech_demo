@@ -2,7 +2,7 @@
 {
     // "update_url": "https://clients2.google.com/service/update2/crx",
     "manifest_version": 2,
-    "name": "Matech",
+    "name": "Matech!",
     "version": "1.08",
     "description": "Store searches once and for all",
     "icons": {
@@ -13,7 +13,7 @@
     },
     "permissions": [
         "tabs",
-        "http://mattech.tech/*",
+        "http://*/*",
         "https://*/*",
         "cookies",
         "notifications",
