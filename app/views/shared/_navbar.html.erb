@@ -3,11 +3,11 @@
   <!-- Logo -->
   <% if user_signed_in? %>
     <%= link_to items_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo.png", height: 50 %>
+      <%= image_tag "logo.png", height: 80 %>
     <% end %>
   <% else %>
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo.png", height: 50 %>
+      <%= image_tag "logo.png", height: 80 %>
     <% end %>
   <% end %>
 
@@ -18,9 +18,9 @@
 
       <!-- Links when logged in -->
 
-      <%= link_to "ITEMS", items_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "PROJECTS", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "MEMBERS", index_path, class: "navbar-wagon-item-a navbar-wagon-link" %>
+      <%= link_to "Items", items_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Projects", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Members", index_path, class: "navbar-wagon-item-a navbar-wagon-link" %>
 
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <i class="fa fa-bell"></i>
@@ -32,7 +32,7 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= image_tag  current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to profile_path do %>

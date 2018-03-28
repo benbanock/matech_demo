@@ -14,11 +14,14 @@
   font-family: Neue;
   font-size: 10px;
   letter-spacing: 1px;
+  position: sticky;
+  top: 0px;
+  z-index: 12;
 }
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 30px;
+  height: 50px;
 }
 
 /* User Avatar */

@@ -17,10 +17,12 @@ class ItemsController < ApplicationController
     @project_item = ProjectItem.new
     authorize @item
     @tag = Tag.new
+    good_projects
   end
 
   def create_ext
     item_url = params[:item_url],
+    raise
     item_title = params[:item_title]
     image_url = params[:image_url]
     project_id = params[:project_id]
@@ -75,4 +77,16 @@ class ItemsController < ApplicationController
   def Items_params
     params.require(:item).permit(:name, :photo, :url, :tag_list)
   end
+
+  def good_projects
+    item = @item
+    @good_projects = []
+    current_user.projects.each do |project|
+      user_project_items = project.project_items
+      if user_project_items.all? {|user_project_item| ! user_project_item.item.id == item.id}
+        @good_projects << project
+      end
+    end
+  end
+
 end
