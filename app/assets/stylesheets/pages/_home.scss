@@ -9,6 +9,7 @@
   text-align: center;
   padding-top: 30vh;
   font-family: Neue;
+  margin-bottom: 2px;
   p {
     margin-bottom: 5px;
     font-family: Neue;
@@ -24,12 +25,10 @@
 .home-banner-2 {
   background-image: asset-url('home2.jpg');
   background-size: cover;
-  height: 450px;
   color: black;
   justify-content: center;
   text-align: center;
-  margin-top:vh;
-  padding-top: 10vh;
+  margin-top: 2px;
   font-family: Neue;
   p {
     margin-bottom: 5px;
@@ -44,7 +43,20 @@
   }
 }
 
+.background_banner_2 {
+  height: 320px;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.85);
+  h3 {
+  padding-top: 30px;
+  }
+}
 
+.wrapper {
+  background-color: white;
+}
 .home-button-2 {
 display: inline-block;
   cursor: pointer;
@@ -96,14 +108,7 @@ display: inline-block;
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-.background_banner_2 {
-  padding-top: 10vh;
-  height: 220px;
-  background-size: cover;
-  position: relative;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.85);
-}
+
 
 .home-button {
   display: inline-block;
