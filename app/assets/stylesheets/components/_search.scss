@@ -1,15 +1,17 @@
 .search-block {
+  margin-top: 15px;
   display: flex;
-  padding: 2px 5px;
+  padding: 3px 3px;
   align-items: center;
-  background-color: #969696;
+  background-color: black;
+  border-radius: 2px;
 }
 
 .search-title-text {
-  margin-left: 0px;
+  margin-right: 1px;
   min-width: 120px;
   min-height: 40px;
-  box-shadow: 1px 1px 1px 1px #969696;
+  box-shadow: 1px 1px 1px 1px black;
   display: flex;
   align-items: center;
   padding: 0px 15px;
@@ -18,13 +20,13 @@
     margin-bottom: 0px !important;
     font-size: 14px;
     font-weight: bolder;
-    color: #616668;
+    color: black;
   }
 }
 
 .search-div {
   flex: 1 1 auto;
-  box-shadow: 1px 1px 1px 1px #969696;
+  box-shadow: 1px 1px 1px 1px black;
 }
 
 #search-tag {
@@ -42,19 +44,44 @@
   font-size: 14px !important;
   font-family: Neue !important;
   color: white !important;
-  box-shadow: 1px 1px 1px 1px rgba(250, 250, 250, 0) !important;
+  box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0) !important;
+  border-radius: 2px !important;
 }
 
-.cursor-price {
-  margin: 2px 2px;
-  width: 200px;
-  min-height: 40px;
-  text-align: center;
-  background-color: light-gray;
-  p {
-    margin-bottom: 0px !important;
-    font-size: 14px;
-    font-weight: bolder;
-    color: #616668;
+.search-choice {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  margin-right: 5px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  padding-left: 10px !important;
+  padding-right: 20px !important;
+  display: flex  !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  background-color: #f9f8f9 !important;
+  border-radius: 13px !important;
+  font-family: Neue !important;
+  letter-spacing: px !important;
+  a {
+    color: #edeaea !important;
+    font-weight: lighter !important;
   }
 }
+
+
+// .cursor-price {
+//   margin: 0px 3px;
+//   width: 200px;
+//   min-height: 40px;
+//   text-align: center;
+//   background-color: light-gray;
+//   border-radius: 2px;
+//   p {
+//     margin-bottom: 0px !important;
+//     font-size: 14px;
+//     font-weight: bolder;
+//     color: black;
+//   }
+// }
