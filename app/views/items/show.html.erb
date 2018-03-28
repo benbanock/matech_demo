@@ -14,10 +14,7 @@
       <div class="area-right">
         <div class="project-area-show">
           <div class="form-projects">
-            <%= simple_form_for([@item, @project_item], html: { class: "form-inline"}, remote: true) do |f| %>
-                <%= f.input :project_id, prompt:"Add a project", label: false, collection: @good_projects %>
-                <%= f.button :submit, "Add", class: "" %>
-            <% end %>
+            <%= render "list", project_item: ProjectItem.new(item: @item), good_projects: @good_projects %>
           </div>
           <div class="tags-projects">
             <% @item.project_items.each do |project_item| %>
