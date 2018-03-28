@@ -1,0 +1,5 @@
+meta_product_name: "Matech"
+meta_title: "Matech - the way to curate your creative search"
+meta_description: "Smart tool to save and organize your files using tags"
+meta_image: "logo.png"                       # should exist in `app/assets/images/`
+  # required for Twitter Cards
