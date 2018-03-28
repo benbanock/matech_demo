@@ -1,8 +1,9 @@
-<div class="container">
-  <div class="title-row-show">
-    <h2>Project "<%= @project.name %>"</h2>
-    <%= link_to "Back", projects_path, class: "btn btn-primary" %>
-  </div>
+ <div class="container">
+  <div class="block-container-index">
+    <div class="title-row-show">
+      <h2>Project "<%= @project.name %>"</h2>
+      <%= link_to "Back", projects_path, class: "btn btn-primary" %>
+    </div>
 
   <div class="row">
     <div class="collab-mail-bar">
@@ -20,26 +21,26 @@
       <% end %>
     </div>
   </div>
-
-  <div class="row">
-    <% @items.each do |item| %>
-      <% if item.photo.blank? %>
-        <% photo = "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=format&fit=crop&w=1012&q=80"%>
-      <% else %>
-        <% photo = image_path item.photo %>
-      <% end %>
-      <div class="col-xs-12 col-md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
-          <%= link_to item_path(item), method: :delete do %>
-            <%= image_tag "trash-simple.svg"%>
-          <% end %>
-        <div class="tagshover">
-          <h1>All your tags here:</h1>
-          <div class="tags-index">
-            <div class="tag-index">
-              <% item.tag_list.each do |tag| %>
-                <button><%= tag %></button>
-              <% end %>
+    <div class="row">
+      <% @items.each do |item| %>
+        <% if item.photo.blank? %>
+          <% photo = "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=format&fit=crop&w=1012&q=80"%>
+        <% else %>
+          <% photo = image_path item.photo %>
+        <% end %>
+        <div class="col-xs-12 col-md-4">
+          <div class="card box-shadow" style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
+            <%= link_to item_path(item), method: :delete do %>
+              <%= image_tag "trash-simple.svg"%>
+            <% end %>
+          <div class="tagshover">
+            <h1>All your tags here:</h1>
+            <div class="tags-index">
+              <div class="tag-index">
+                <% item.tag_list.each do |tag| %>
+                  <button><%= tag %></button>
+                <% end %>
+              </div>
             </div>
           </div>
           <%= button_to "See more", item_path(item), :class => "btn btn-danger", :method => :get %>

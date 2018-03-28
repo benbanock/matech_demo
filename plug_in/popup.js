@@ -1,5 +1,6 @@
 function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   console.log(project_id)
+  console.log(item_url)
    fetch("http://localhost:3000/create_ext", {
     method: "POST",
     headers: {
@@ -47,7 +48,7 @@ function displayImages(images){
     'nothing to display'
   } else {
     document.getElementById('selected-image').src = image_url;
-    document.getElementById('item-title').placeholder= item_title
+    document.getElementById('item-title').value= item_title
   }
 }
 // Step 3 - get user info + launch showSections
