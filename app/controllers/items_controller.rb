@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
 
   def create_ext
     item_url = params[:item_url],
+    raise
     item_title = params[:item_title]
     image_url = params[:image_url]
     project_id = params[:project_id]
