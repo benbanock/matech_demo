@@ -19,19 +19,19 @@
               <i class="fas fa-star"></i>
             <% end %>
           <% end %>
-        <div class="tagshover">
-          <div class="tags-index">
-            <div class="tag-index">
-              <% item.tag_list.each do |tag| %>
-                <div class="card-tag-index"><%= tag %></div>
-              <% end %>
+          <div class="tagshover">
+            <div class="tags-index">
+              <div class="tags-index">
+                <% item.tag_list.each do |tag| %>
+                  <div class="card-tag-index"><%= tag %></div>
+                <% end %>
+                </div>
             </div>
+            <%= button_to "See more", item_path(item), :class => "btn btn-danger", :method => :get %>
+            <%= link_to item_path(item), method: :delete, data: { confirm: "Do you really want to delete this item?" } do %>
+              <%= image_tag "trash-simple.svg"%>
+            <% end %>
           </div>
-          <%= button_to "See more", item_path(item), :class => "btn btn-danger", :method => :get %>
-          <%= link_to item_path(item), method: :delete, data: { confirm: "Do you really want to delete this item?" } do %>
-            <%= image_tag "trash-simple.svg"%>
-          <% end %>
-        </div>
         </div>
       </div>
     <% end %>

@@ -1,6 +1,8 @@
 function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
-  console.log(project_id)
-   fetch("http://www.mattech.tech/create_ext", {
+  console.log(project_id);
+  console.log(item_url);
+
+  fetch("http://www.mattech.tech/create_ext", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -19,6 +21,7 @@ function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   .then(response => response.json())
   .then((data) => {
     console.log(data);
+    console.log(data.price)
     if(data.status == "ok") {
       document.getElementById("save-btn").innerText = "DONE";
     }
@@ -47,7 +50,7 @@ function displayImages(images){
     'nothing to display'
   } else {
     document.getElementById('selected-image').src = image_url;
-    document.getElementById('item-title').placeholder= item_title
+    document.getElementById('item-title').value= item_title
   }
 }
 // Step 3 - get user info + launch showSections
@@ -55,7 +58,7 @@ function displayImages(images){
 
 let user_logged_in, user_id, projects, project, project_id;
 function getUserInfo() {
-  fetch("http://mattech.tech/json_to_send", { credentials: 'include' })
+  fetch("http://www.mattech.tech/json_to_send", { credentials: 'include' })
   .then(response => response.json())
   .then((data) => {
     console.log(data)
