@@ -6,3 +6,4 @@ class Project < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true, length: { minimum: 3, too_short: "please enter at least 3 characters"}
 end
+

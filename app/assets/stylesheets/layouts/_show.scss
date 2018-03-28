@@ -104,3 +104,11 @@
   border-radius: 9px;
   color: rgb(110, 110, 110);
 }
+
+.project-name.link_name a {
+  color: #333333;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
