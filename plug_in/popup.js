@@ -1,5 +1,6 @@
 function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   console.log(project_id)
+  console.log(item_url)
    fetch("http://localhost:3000/create_ext", {
     method: "POST",
     headers: {
