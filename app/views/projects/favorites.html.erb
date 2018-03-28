@@ -1,54 +1,61 @@
 <div class="container">
-  <div class="project-nav">
-    <div class="row">
-      <div class="project-groups">
-        <%= link_to "All", projects_path %>
-        <p> | </p>
-        <p><strong>Favorites</strong></p>
-        <p> | </p>
-        <%= link_to "Recent", projectsrecent_path %>
+  <div class="block-container-index">
+    <div class="project-nav">
+      <div class="row">
+        <div class="project-groups">
+          <%= link_to "All", projects_path, class:"lien-nav" %>
+          <p> | </p>
+          <p class="lien-nav-actif">Favorites</p>
+          <p> | </p>
+          <%= link_to "Recent", projectsrecent_path, class:"lien-nav" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="project-groups">
+          <%= simple_form_for(@project) do |f| %>
+            <div class="form-inlign"><%= f.input :name, label: false, placeholder: "New project" %></div>
+            <div class="form-inlign"><%= f.button :submit, "+", class: "btn btn-primary" %></div>
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="project-groups">
-        <%= simple_form_for(@project) do |f| %>
-          <div class="form-inlign"><%= f.input :name, label: false, placeholder: "New project" %></div>
-          <div class="form-inlign"><%= f.button :submit, "+", class: "btn btn-primary" %></div>
-        <% end %>
-      </div>
-    </div>
-  </div>
 
-  <% @projects.each do |project| %>
-    <div class="col-xs-12 col-sm-6">
-      <div class="project-card">
-        <div class="row">
-          <div class="card-project-element">
-            <div class="card-project-photo">
-              <%=link_to project_path(project) do %>
-                <%= image_tag "image3.jpg", class: "photo-project" %>
-              <% end %>
-            </div>
-            <div class="card-project-name">
-              <%=link_to project_path(project) do %>
-                <h3><%= project.name %></h3>
-              <% end %>
-              <% if (Time.now - project.date).to_i / 3600 >= 24 %>
-                <p><em>Last update: <%= project.date.strftime("%d-%m-%y") %> (<%= (Time.now - project.date).to_i / (24 * 3600) %>d)</em></p>
-              <% else %>
-                <p><em>Last update: <%= project.date.strftime("%d-%m-%y") %> (<%= (Time.now - project.date).to_i / 3600 %>h)</em></p>
-              <% end %>
-              <div class="collaborator-block">
-                <p>Shared with</p>
-                <% project.users.each do |user| %>
-                  <%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %>
+    <% @projects.each do |project| %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="project-card">
+          <div class="row">
+            <div class="card-project-element">
+              <div class="card-project-photo">
+                <%=link_to project_path(project) do %>
+                  <%= image_tag "image3.jpg", class: "photo-project" %>
                 <% end %>
               </div>
-              <p><%= link_to "Edit", edit_project_path(project), class: "btn btn-primary" %></p>
+              <div class="card-project-name">
+                <div class="card-project-name-sister">
+                  <%=link_to project_path(project) do %>
+                    <h3><%= project.name %></h3>
+                  <% end %>
+                  <%= link_to edit_project_path(project) do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                </div>
+                <% if (Time.now - project.date).to_i / 3600 >= 24 %>
+                  <p><em>Last update: <%= project.date.strftime("%d-%m-%y") %> (<%= (Time.now - project.date).to_i / (24 * 3600) %>d)</em></p>
+                <% else %>
+                  <p><em>Last update: <%= project.date.strftime("%d-%m-%y") %> (<%= (Time.now - project.date).to_i / 3600 %>h)</em></p>
+                <% end %>
+                <div class="collaborator-block">
+                  <p>Shared with</p>
+                  <% project.users.each do |user| %>
+                    <%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+<%= render 'shared/footer' %>

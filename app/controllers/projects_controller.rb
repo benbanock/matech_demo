@@ -22,7 +22,9 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.date = Time.now
     authorize @project
-    @project.save
+    if !@project.save
+      return redirect_to projects_path
+    end
     @tag = Tag.new
     @tag.name = @project.name
     @tag.save
@@ -64,6 +66,15 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @items = @project.items
     authorize @project
+  end
+
+  def mailtoclient
+    @project = Project.find(params[:project_id])
+    authorize @project
+    UserMailer.welcome(@project).deliver_now
+    # @user = User.invite!(email: @project.client_email) #to send email invitation with Devise Invitable
+    # UserProject.create(project: @project, user: @user) #to send email invitation with Devise Invitable
+    redirect_to project_path(@project)
   end
 
   private

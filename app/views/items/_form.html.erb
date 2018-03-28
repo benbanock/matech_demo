@@ -1,4 +1,4 @@
-<%= simple_form_for([@item, @tag]) do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit "Add tag", :class => "create"  %>
+<%= simple_form_for([@item, @tag], remote: true) do |f| %>
+  <%= f.text_field :name, placeholder: "Add a tag" %>
+  <%= f.submit "Add", :class => "create"  %>
 <% end %>

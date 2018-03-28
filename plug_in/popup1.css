@@ -1,16 +1,21 @@
 
 
-.body {
+body {
   font-size: 11px;
   font-style: normal;
   overflow: hidden;
+  background-color:#41505A;
+}
+
+h1::after {
+  content:"";
+  order-bottom: 1px solid #495865;
 }
 
 .centered {
   display: flex;
   justify-content: center;
 }
-
 
 #main {
   background-clip: padding-box;
@@ -170,7 +175,7 @@ div.image_nav button:focus {
     font-style: italic;
     color: rgba(0, 0, 0, 0.4);
 }
-#user-list {
+#user-projects {
     background: transparent;
     margin: 2px 8px;
     width: 303px;
@@ -182,8 +187,8 @@ div.image_nav button:focus {
     /*  -webkit-appearance: none;
   -webkit-border-radius: 0px;*/
 }
-#user-list:hover,
-#user-list:focus {
+#user-projects:hover,
+#user-projects:focus {
     outline: 1px solid rgba(67, 84, 152, 0.7);
 }
 #new-list-title {
@@ -271,11 +276,21 @@ div#selected img {
     -webkit-animation-duration: 2s;
     -webkit-animation-delay: 0s;
 }
-.item-title {
+
+
+#item-title {
+  background-color:#41505A;
   font-size: 14px;
   font-weight: bold;
-  color: black;
+  color:white;
+  margin-bottom:10px;
 }
+#item-title::placeholder {
+  color:white;
+  opacity:1;
+}
+
+
 
 #selected-image{
   display: flex;

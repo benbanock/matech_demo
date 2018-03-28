@@ -1,0 +1,6 @@
+function destroyCard() {
+  const projectItems = document.querySelector("[data-project-item-id='<%= @project_item.id %>']");
+  projectItems.remove();
+}
+
+destroyCard();

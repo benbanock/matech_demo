@@ -1,6 +1,6 @@
-function addItem(item_url, item_title, user_id, image_url) {
-
-  fetch("http://localhost:3000/create_ext", {
+function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
+  console.log(project_id)
+   fetch("http://localhost:3000/create_ext", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -11,13 +11,17 @@ function addItem(item_url, item_title, user_id, image_url) {
       item_url: item_url,
       item_title: item_title,
       user_id: user_id,
-      image_url: image_url
-      // project_id: project_id,
+      image_url: image_url,
+      project_id: project_id,
+      tags: tags
     })
   })
   .then(response => response.json())
   .then((data) => {
     console.log(data);
+    if(data.status == "ok") {
+      document.getElementById("save-btn").innerText = "Done";
+    }
 
     // set the answer depending on create ext.
     // display
@@ -32,8 +36,6 @@ chrome.extension.onRequest.addListener(function(request, sender){
   console.log(request.type)
   if(request.type === 'collect_images'){
     images = request.images;
-    // console.log(images);
-    // showSections(request.images);
     image_url = images[0].src;
     console.log(image_url);
     getUserInfo();
@@ -61,7 +63,8 @@ function getUserInfo() {
     user_id = data.user_id;
     projects = data.projects;
     projects.forEach((project) => {
-      project = project.name;
+      html = `<option value="${project["id"]}"> ${project["name"]}</option>`;
+      document.getElementById("user-projects").insertAdjacentHTML("beforeend", html);
     });
   });
   displayImages(images)
@@ -88,23 +91,34 @@ chrome.tabs.getSelected(null, function(tab){
 // });
 
 // launch the create function
+let tags = [];
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
   // Add here your addEventListener code
+  document.getElementById("user-projects").addEventListener('change', () => {
+  });
+
+  document.getElementById("tag-title").addEventListener('keydown', () => {
+    console.log(event.key)
+    if(event.key === "Enter") {
+      let word = document.getElementById("tag-title").value;
+      tags.push(word)
+      let list = document.getElementById("display_tag");
+      list.insertAdjacentHTML( "beforeend", `<li> ${word} </li>`);
+      document.getElementById("tag-title").value = ""
+      console.log(tags)
+    }
+
+
+  });
+
   document.getElementById('item-title').placeholder= item_title
   const create = document.getElementById("save-btn");
   create.addEventListener("click", (event) => {
     console.log(event);
-    console.log(document.getElementById('item-title').placeholder)
-    addItem(item_url, item_title, image_url, user_id);
+    project_id = document.getElementById("user-projects").value;
+    console.log(item_url, item_title,user_id, image_url,project_id);
+    addItem(item_url, item_title,user_id, image_url,project_id, tags);
   });
-  document.getElementById("user-list").addEventListener('change', () => {
-    if (document.getElementById("user-list").value == -1) {
-      document.getElementById("new-list-title").style.display = "block";
-    }
-    else {
-      document.getElementById("new-list-title").style.display = "none";
-    }
-  })
 });
 
