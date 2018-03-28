@@ -3,7 +3,6 @@
   background:linear-gradient(to left, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
   display: flex;
   justify-content: space-between;
-  height: 100vh;
   position: absolute;
   opacity: 0.2;
   color: black;
@@ -21,11 +20,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 10px 15px 48px;
+  padding: 10px 0px;
 }
 
 #footer-brand {
-  font-size: 20px;
+  font-size: 16px;
   color: black;
   text-decoration: none;
 }
