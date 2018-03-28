@@ -1,8 +1,9 @@
-.block-container {
+.block-container-edit {
   display: flex;
   justify-content: space-between;
   align-items: justify;
   flex-wrap: wrap;
+  min-height: 100vh;
 }
 
 .title-row {

@@ -1,8 +1,11 @@
 <h2>Welcome to Matech</h2>
-
 <p>Hi <%= @project.client_first_name %> <%= @project.client_last_name %>,</p>
+<p>I would like to give you <strong>access to our item's selection</strong> for "<%= @project.name %>"</p>
+<div>Best regard,</div>
+<div><%= @project.users.first.first_name %> <%= @project.users.first.last_name %></div>
+<br>
 
-<p>I want to give you access to our item's selection for "<%= @project.name %>"</p>
 
-<p>Best regards</p>
-<p><%= @project.users.first.first_name %> <%= @project.users.first.last_name %></p>
+<% @project.items.each do |item| %>
+  <img src="<%= image_url(item.photo) %>" alt="" style="width: 400px">
+<% end %>

@@ -4,9 +4,7 @@
     <%= link_to "Back", projects_path, class: "btn btn-primary" %>
   </div>
 
-
-
-  <div class="block-container">
+  <div class="block-container-edit">
     <div class="block-name-users">
       <div class="block-name-users-part">
         <h3>Project</h3>
@@ -16,7 +14,7 @@
             <%= f.input :name, label: false, id:"width-min-form" %>
             <p>Status </p>
             <%= f.input :status, collection: ["favorite", "pending", "archived"], label: false, id:"width-min-form" %>
-            <p><%= f.button :submit, "Modify", class: "btn btn-primary" %></p>
+            <p><%= f.button :submit, "Modify", class: "btn btn-info" %></p>
           </div>
         <% end %>
       </div>
@@ -27,7 +25,7 @@
           <%= simple_form_for [@project, @user_project] do |f| %>
             <div class="form-inlign">
               <p><%= f.input :user_id, policy_scope:"add a user", label: false, collection: User.not_in_the_project(@project).map { |user| [user.full_name, user.id] } %></p>
-              <p><%= f.button :submit, "+", class: "btn btn-primary" %></p>
+              <p><%= f.button :submit, "+", class: "btn btn-info" %></p>
             </div>
           <% end %>
         </div>
@@ -64,7 +62,8 @@
             <p><%= f.input :client_first_name, label: "First name" %></p>
             <p><%= f.input :client_last_name, label: "Last name" %></p>
             <p><%= f.input :client_email, label: "Email" %></p>
-            <p><%= f.button :submit, "Modify", class: "btn btn-primary" %></p>
+            <% @project.client_email == nil ? button_name = "Add" : button_name = "Modify" %>
+            <p><%= f.button :submit, "#{button_name}", class: "btn btn-info" %></p>
           </div>
         <% end %>
       </div>
