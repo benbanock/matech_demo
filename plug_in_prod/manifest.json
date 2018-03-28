@@ -2,7 +2,7 @@
 {
     "manifest_version": 2,
     "name": "Matech!",
-    "version": "1.08",
+    "version": "1.09",
     "description": "Store searches once and for all",
     "icons": {
         "16": "images/logo.png",
@@ -24,3 +24,4 @@
         "default_popup": "popup.html"
     }
 }
+
