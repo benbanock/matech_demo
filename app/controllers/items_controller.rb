@@ -32,10 +32,15 @@ class ItemsController < ApplicationController
       @item.tag_list.add(tag)
       @item.save
     end
+    diffbot(item_url, @item)
+    @item.tag_list.add(@item.price)
+    @item.save
     render json: {
-      status: "ok"
+      status: "ok",
+      price: @item.price
     }
   end
+
 
   def destroy
     @item = Item.find(params[:id])
@@ -86,6 +91,16 @@ class ItemsController < ApplicationController
         @good_projects << project
       end
     end
+  end
+
+  def diffbot(item_url, item)
+    require 'json'
+    url = "https://api.diffbot.com/v3/product?token=ed2e20097a61a422366d9238ecfa8086&url= #{item_url}"
+    data_serialized = open(url).read
+    data = JSON.parse(data_serialized)
+    price = data["objects"][0]["offerPrice"]
+    item.price = price
+    item.save
   end
 
 end

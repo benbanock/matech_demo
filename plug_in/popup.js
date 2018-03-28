@@ -1,7 +1,8 @@
 function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
-  console.log(project_id)
-  console.log(item_url)
-   fetch("http://localhost:3000/create_ext", {
+  console.log(project_id);
+  console.log(item_url);
+
+  fetch("http://localhost:3000/create_ext", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -20,6 +21,7 @@ function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   .then(response => response.json())
   .then((data) => {
     console.log(data);
+    console.log(data.price)
     if(data.status == "ok") {
       document.getElementById("save-btn").innerText = "Done";
     }
