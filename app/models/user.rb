@@ -24,7 +24,7 @@ class User < ApplicationRecord
   def picture
     if avatar.blank?
       avatar_list = ["avatar1.jpg", "avatar2.jpg", "avatar3.jpg"]
-      avatar_list[rand(3)]
+      avatar_url = avatar_list[rand(3)]
     else
       avatar_url
     end

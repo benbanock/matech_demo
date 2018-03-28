@@ -5,26 +5,21 @@ body {
   font-style: normal;
   overflow: hidden;
   background-color:#41505A;
+  background-clip: padding-box;
+  border: 2px solid rgba(178, 186, 193, 0.6);
+  border-radius: 3px;
+  padding: 10px 25px 0 25px;
+  position: relative;
+  margin:2px;
+
 }
 
-h1::after {
-  content:"";
-  order-bottom: 1px solid #495865;
-}
 
 .centered {
   display: flex;
   justify-content: center;
 }
 
-#main {
-  background-clip: padding-box;
-  background-color: white;
-  border: 2px solid rgba(178, 186, 193, 0.6);
-  border-radius: 2px;
-  padding: 10px 25px 0 25px;
-  position: relative;
-}
 header {
     height: 90px;
 }
@@ -58,7 +53,7 @@ p {
 #menu-logo {
     padding: 5px 15px;
     color: #435498;
-    font-size: 16px;
+    font-size: 20px;
     outline: none;
     text-decoration: none;
 }
@@ -66,9 +61,13 @@ p {
     padding: 5px 15px;
     outline: none;
     text-decoration: none;
-    color: black;
+    color: white;
+    font-size: 16px;
 }
-#menu-title {
+.menu-title {
+
+  padding-top:5px;
+  margin-bottom:5px;
   border-bottom: 1px solid rgb(230, 230, 230);
 }
 .margined  {
@@ -284,6 +283,8 @@ div#selected img {
   font-weight: bold;
   color:white;
   margin-bottom:10px;
+  padding:10px;
+  text-align:center;
 }
 #item-title::placeholder {
   color:white;
