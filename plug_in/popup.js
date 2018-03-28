@@ -47,7 +47,7 @@ function displayImages(images){
     'nothing to display'
   } else {
     document.getElementById('selected-image').src = image_url;
-    document.getElementById('item-title').placeholder= item_title
+    document.getElementById('item-title').value= item_title
   }
 }
 // Step 3 - get user info + launch showSections
