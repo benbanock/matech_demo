@@ -3,10 +3,12 @@ class ProjectItemsController < ApplicationController
     @project_item = ProjectItem.new(project_item_params)
     @project = Project.find(@project_item.project_id)
     authorize @project_item
-    @project_item.item = Item.find(params[:item_id])
+    @item = Item.find(params[:item_id])
+    @project_item.item = @item
     @project.date = Time.now
     @project.save
     if @project_item.save
+      @good_projects = Project.good_projects(current_user, @item)
       respond_to do |format|
         format.html { redirect_to item_path(params[:item_id]) }
         format.js

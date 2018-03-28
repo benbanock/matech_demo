@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     @project_item = ProjectItem.new
     authorize @item
     @tag = Tag.new
-    good_projects
+    @good_projects = Project.good_projects(current_user, @item)
   end
 
   def create_ext
