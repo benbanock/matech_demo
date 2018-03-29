@@ -2,6 +2,14 @@
   min-height: 100vh;
 }
 
+.form-create {
+  display: flex;
+  align-items: center;
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+
 .project-nav {
   display: flex;
   justify-content: space-between;
@@ -26,18 +34,16 @@
 }
 
 .project-card {
-  box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
+  box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
   background-color: white;
   margin-bottom: 30px;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 .card-project-element {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px dotted black;
-  padding: 20px;
 }
 
 .card-project-photo {
@@ -65,8 +71,11 @@
     color: black !important;
   }
   a {
-    color: rgb(30, 30, 30);
+    color: rgb(150, 150, 150);
     text-decoration: none !important;
+  }
+  a:hover {
+    color: rgb(50, 50, 50) !important;
   }
 }
 
@@ -74,7 +83,7 @@
   width: 190px;
   height: 190px;
   margin-left: 15px;
-  border-radius: 2px;
+  border-radius: 1px;
   background-size: cover;
 }
 
