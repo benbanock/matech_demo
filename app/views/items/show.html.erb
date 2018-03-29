@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="website-area-show">
-          <%= link_to ">Show on original website  >>", @item.url  %>
+          <%= link_to "Show on original website >", @item.url  %>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@
 </div>
 <div class="col-xs-12">
     <div class="scd-row">
-      <%= button_to "Back", items_path, :method => :get %>
+      <%= button_to "Back", items_path, :method => :get, :class => "btn-back"%>
       <%= link_to item_path(@item), method: :delete do %>Delete Item
         <i class="fas fa-times"></i>
       <% end %>
