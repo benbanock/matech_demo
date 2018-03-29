@@ -114,6 +114,9 @@ button.btnSubmit:hover {
   font-size: 14px;
 }
 
+.hidden{
+  display:none;
+}
 
 
 
@@ -279,34 +282,54 @@ footer:after {
     clear: both;
 }
 
-@import 'https://fonts.googleapis.com/css?family=Roboto:300,500,700';
+.loader-box {
+  width: 20px;
+  margin-top: -15px;
+}
+.loader{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+.big-check {
+  font-size: 40px
+}
 
 
-button.btnSubmit.clicked {
-    pointer-events: none;
-    -webkit-animation: anim1 200ms cubic-bezier(0.2, 0, 0.8, 1), anim2 300ms cubic-bezier(0.6, 0, 0.7, 1) 300ms 1 forwards;
-    animation: anim1 200ms cubic-bezier(0.2, 0, 0.8, 1), anim2 300ms cubic-bezier(0.6, 0, 0.7, 1) 300ms 1 forwards;
+#loader-1:before, #loader-1:after{
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 5px solid transparent;
+  border-top-color: black;
 }
-button.btnSubmit.clicked.done {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    width: 50px;
-    background: #69af96;
-    background: -webkit-gradient(linear, left top, left bottom, from(0), color-stop(#69af96), to(#88e2c1));
-    background: linear-gradient(0, #69af96, #88e2c1);
-    border-width: 0;
-    border-color: rgba(30, 205, 151, 0);
-    color: rgba(30, 205, 151, 0);
-    -webkit-transition: all 1000ms ease;
-    transition: all 1000ms ease;
-    -webkit-animation: anim4 300ms cubic-bezier(0.2, 0, 0.4, 1) forwards;
-    animation: anim4 300ms cubic-bezier(0.2, 0, 0.4, 1) forwards;
+
+#loader-1:before{
+  z-index: 100;
+  animation: spin 1s infinite;
 }
-*/
+
+#loader-1:after{
+  border: 5px solid #ccc;
+}
+
+@keyframes spin{
+  0%{
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100%{
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
