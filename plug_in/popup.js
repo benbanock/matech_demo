@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let word = document.getElementById("tag-title").value;
       tags.push(word)
       let list = document.getElementById("display_tag");
-      list.insertAdjacentHTML( "beforeend", `<li> ${word} </li>`);
+      list.insertAdjacentHTML( "beforeend", `<div class="tag"> ${word} <div>`);
       document.getElementById("tag-title").value = ""
       console.log(tags)
     }
