@@ -14,7 +14,7 @@
           <% end %>
         </div>
         <%= link_to project_sendmail_path(@project) do %>
-          <div class="email-sender">
+          <div class="email-sender hidden">
             <p>To client</p>
             <i class="far fa-share-square avatar-margin-left"></i>
           </div>
@@ -49,7 +49,7 @@
               <% end %>
             </div>
           </div>
-          <%= button_to "See more", item_path(item), :class => "btn btn-danger", :method => :get %>
+          <%= button_to "See item", item_path(item), :class => "btn btn-danger", :method => :get %>
           <%= link_to item_path(item), method: :delete, data: { confirm: "Do you really want to delete this item?" } do %>
             <%= image_tag "trash-simple.svg"%>
           <% end %>
