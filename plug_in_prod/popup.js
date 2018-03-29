@@ -21,9 +21,9 @@ function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   .then(response => response.json())
   .then((data) => {
     console.log(data);
-    console.log(data.price)
+    console.log(data.price);
     if(data.status == "ok") {
-      document.getElementById("save-btn").innerText = "DONE";
+      document.getElementById("save-btn").innerText = "Done";
     }
 
     // set the answer depending on create ext.
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let word = document.getElementById("tag-title").value;
       tags.push(word)
       let list = document.getElementById("display_tag");
-      list.insertAdjacentHTML( "beforeend", `<li> ${word} </li>`);
+      list.insertAdjacentHTML( "beforeend", `<div class="tag"> ${word} <div>`);
       document.getElementById("tag-title").value = ""
       console.log(tags)
     }
