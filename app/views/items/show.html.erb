@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="tag-area-show">
-          <div><%= render 'form' %></div>
+          <div class="form-tag"><%= render 'form', item: @item, tag: @tag %></div>
           <div class="tags">
             <div class="tag-index">
               <% @item.tags.each do |tag| %>
