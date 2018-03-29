@@ -1,7 +1,7 @@
 <div class="container">
   <div class="title-row">
     <h2>Edit "<%= @project.name %>"</h2>
-    <%= link_to "Back", projects_path, class: "btn btn-primary" %>
+    <%= link_to "Back", projects_path, class: "btn-back" %>
   </div>
 
   <div class="block-container-edit">
@@ -37,13 +37,13 @@
         </div>
       </div>
 
-      <div class="block-name-users-part">
+      <div class="block-team-part">
         <div class="title-row">
           <h3>Team</h3>
           <%= simple_form_for [@project, @user_project] do |f| %>
-            <div class="form-inlign">
-              <p><%= f.input :user_id, policy_scope:"add a user", label: false, collection: User.not_in_the_project(@project).map { |user| [user.full_name, user.id] } %></p>
-              <p><%= f.button :submit, "+", class: "btn btn-info" %></p>
+            <div class="form-create">
+              <%= f.input :user_id, policy_scope:"add a user", label: false, collection: User.not_in_the_project(@project).map { |user| [user.full_name, user.id] } %>
+              <%= f.button :submit, "+", class: "btn btn-info" %>
             </div>
           <% end %>
         </div>
@@ -60,7 +60,7 @@
                     <p><em><%= user_project.user.description %></em></p>
                   </div>
                   <div class="card-project-delete">
-                    <%=link_to user_project_path(user_project), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <%=link_to user_project_path(user_project), method: :delete do %>
                       <%= image_tag "trash-simple.svg" %>
                     <% end %>
                   </div>
@@ -71,7 +71,11 @@
         </div>
       </div>
     </div>
+
+    <div class="center-block">
+    <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Do you really want to delete the project?" }, class: "btn btn-danger btn-enlarge" %>
+    </div>
   </div>
-  <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Do you really want to delete the project?" }, class: "btn btn-danger btn-enlarge" %>
 </div>
+
 <%= render 'shared/footer' %>

@@ -20,13 +20,12 @@
 .email-sender {
   display: flex;
   align-items: center;
-  background-color: rgb(245, 245, 245);
-  box-shadow: 1px 1px 1px 1px rgba(30, 30, 30, 0.2);
-  color: rgba(30, 30, 30, 1);
+  background-color: white;
+  color: rgba(150, 150, 150, 1);
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 2px;
   &:hover {
-    background-color: rgb(200, 200, 200);
+    color: rgb(200, 200, 200);
   }
   p {
     font-size: 14px;
