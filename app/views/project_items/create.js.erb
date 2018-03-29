@@ -10,4 +10,4 @@ function refreshList(innerHTML) {
   projectItems.innerHTML = innerHTML;
 }
 
-refreshList('<%= j render "items/list", project_item: @project_item, good_projects: @good_projects %>');
+refreshList('<%= j render "items/list", project_item: ProjectItem.new(item: @item), good_projects: @good_projects %>');
