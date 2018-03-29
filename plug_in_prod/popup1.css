@@ -2,12 +2,11 @@ body {
   font-size: 11px;
   font-style: normal;
   overflow: hidden;
-  background-color:#393f48;
   background-clip: padding-box;
-  border: 2px solid rgba(178, 186, 193, 0.6);
+  border: 3px solid black;
   border-radius: 3px;
   padding: 10px 25px 0 25px;
-  margin:2px;
+  margin:3px;
 }
 
 button.btnSubmit {
@@ -15,9 +14,9 @@ button.btnSubmit {
   letter-spacing: 2px;
   width: 125px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 2px;
   border: 2px solid;
-  border-color: white;
+  border-color: black;
   background: rgb(246, 246, 246);
   color: #393f48;
   font-size: 15px;
@@ -26,15 +25,17 @@ button.btnSubmit {
 
 button.btnSubmit:hover {
   cursor: pointer;
-  background: white;
+  background-color: black;
+  color:white;
+  font-weight: bolder;
 }
 
 #menu-login {
   padding: 5px 15px;
   outline: none;
   text-decoration: none;
-  color: white;
-  font-size: 12px;
+  color: black;
+  font-size: 14px;
 
 }
 
@@ -66,17 +67,23 @@ button.btnSubmit:hover {
 }
 
 #item-title {
-  background-color:#393f48;
+  background-color: #ffffff;
   font-size: 14px;
-  font-weight: bold;
-  color:white;
-  margin-bottom:10px;
-  padding:10px;
-  text-align:center;
+  color: #0c0c0c;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid black;
+  text-align: center;
   border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
 }
+#item-title:hover {
+  background-color: rgb(246, 246, 246);
+}
+
 #item-title::placeholder {
-  color:white;
+  color:black;
   opacity:1;
 }
 
@@ -89,16 +96,22 @@ button.btnSubmit:hover {
 #tag-title {
   display:flex;
   justify-content:center;
-  border-radius: 10px;
-  background-color:#393f48;
+  border-radius: 5px;
+  border:1px solid gray ;
+  background-color: #505760;
+  height:40px;
+  width:100%;
   color:white;
-  padding:4px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding:15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 #tag-title::placeholder {
   color:white;
+  font-size: 14px;
 }
 
 
@@ -166,12 +179,14 @@ p {
   display:flex;
   flex-wrap:wrap;
   text-align: center;
-  border:2px solid white;
+  border:2px solid black;
   border-radius: 15px;
   padding:8px;
-  color:white;
+  color:black;
   margin:3px;
-
+  background-color:white;
+  cursor:default;
+  font-size:14px;
 }
 
 .description> input {
@@ -188,15 +203,16 @@ p {
 }
 #user-projects {
     background: transparent;
-    margin: 2px 8px;
     width: 303px;
     padding: 4px 8px;
     border: none;
-    height: 22px;
-    font-style: italic;
+    height: 40px;
+    font-size:14px;
     color:white;
     font-weight: 20px;
     background-color: #505760;
+    border-radius:4px;
+    cursor:pointer;
 }
 #user-projects:hover,
 #user-projects:focus {
@@ -204,14 +220,14 @@ p {
 }
 
 option{
-  background-color:#2D2D2B;
+  background-color:#393f48;
 }
 
 #new-list-title {
     outline: 1px solid red;
 }
-::placeholder {
-    color: rgba(0, 0, 0, 0.4);
+textarea::placeholder {
+    color: black;
 }
 
 #logo-fail {

@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     if params[:query].present?
       @items = params[:query].map { |query| Item.global_search("%#{query}%")}.inject(:&)
     else
-      @items = current_user.projects.items
+      @items = Item.all
     end
   end
 
