@@ -27,7 +27,7 @@
             <div class="card-project-element">
               <div class="card-project-photo">
                 <%=link_to project_path(project) do %>
-                  <%= image_tag "image3.jpg", class: "photo-project" %>
+                  <%= image_tag "mattech#{rand(1..30)}.jpeg", class: "photo-project" %>
                 <% end %>
               </div>
               <div class="card-project-name">
