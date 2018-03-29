@@ -27,6 +27,8 @@ class ItemsController < ApplicationController
     project_id = params[:project_id]
     @item = Item.create(photo: image_url, url: item_url, name: item_title )
     @item.tag_list.add("inspiration") if project_id == "-1"
+    @item.tag_list.add(item_title)
+    @item.save
     @project_item = ProjectItem.create(project_id: project_id, item_id: @item.id)
     tags = params[:tags]
     tags.each do |tag|
