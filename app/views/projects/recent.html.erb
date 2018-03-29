@@ -13,8 +13,10 @@
       <div class="row">
         <div class="project-groups">
           <%= simple_form_for(@project) do |f| %>
-            <div class="form-inlign"><%= f.input :name, label: false, placeholder: "New project" %></div>
-            <div class="form-inlign"><%= f.button :submit, "+", class: "btn btn-primary" %></div>
+            <div class="form-create">
+              <%= f.input :name, label: false, placeholder: "New project" %>
+              <%= f.button :submit, "+", class: "btn btn-primary" %>
+            </div>
           <% end %>
         </div>
       </div>
