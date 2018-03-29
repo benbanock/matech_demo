@@ -7,15 +7,10 @@ body {
   border: 2px solid rgba(178, 186, 193, 0.6);
   border-radius: 3px;
   padding: 10px 25px 0 25px;
-  position: relative;
   margin:2px;
-  position: relative;
 }
 
 button.btnSubmit {
-  position: absolute;
-  top: 0;
-  right: 15px;
   cursor: pointer;
   letter-spacing: 2px;
   width: 125px;
@@ -40,39 +35,37 @@ button.btnSubmit:hover {
   text-decoration: none;
   color: white;
   font-size: 12px;
-  position: absolute;
-  top: 65px;
-  right: 2px;
+
 }
 
 .centered {
   display: flex;
   justify-content: center;
 }
+.align-right{
+  display:flex;
+  justify-content: flex-end;
+}
 
 #menu-logo {
-    font-size: 40px;
-    outline: none;
-    text-decoration: none;
+  font-size: 40px;
+  outline: none;
+  text-decoration: none;
 }
 
 #selected-image{
-  position: absolute;
-  top: 110px;
-  left: 25%;
+  display:flex;
   max-width: 250px;
   max-height: 184px;
   align-items: center;
   justify-content: center;
   text-align:center;
   margin: 10px 0px 7px 0px;
-  border-width: 2px;
+  border-width: 3px;
+  border-radius: 4px;
 }
 
 #item-title {
-  position: absolute;
-  top: 320px;
-  left: 23%;
   background-color:#393f48;
   font-size: 14px;
   font-weight: bold;
@@ -80,6 +73,7 @@ button.btnSubmit:hover {
   margin-bottom:10px;
   padding:10px;
   text-align:center;
+  border-radius: 4px;
 }
 #item-title::placeholder {
   color:white;
@@ -87,23 +81,25 @@ button.btnSubmit:hover {
 }
 
 #content {
-  margin-top: 330px;
   left: 10%;
   margin-bottom: 10px;
-  background-color: #505760;
-}
-option {
-  color: white !important;
+
 }
 
 #tag-title {
-  position: absolute;
-  top: 450px;
-  left: 10%;
+  display:flex;
+  justify-content:center;
+  border-radius: 10px;
+  background-color:#393f48;
+  color:white;
+  padding:4px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
-
+#tag-title::placeholder {
+  color:white;
+}
 
 
 
@@ -160,6 +156,23 @@ p {
 .margined  {
   margin-top:40px;
 }
+#display_tag {
+  display:flex;
+  flex-wrap: wrap;
+  margin-right: 3px;
+}
+
+.tag {
+  display:flex;
+  flex-wrap:wrap;
+  text-align: center;
+  border:2px solid white;
+  border-radius: 15px;
+  padding:8px;
+  color:white;
+  margin:3px;
+
+}
 
 .description> input {
     margin: 2px 8px;
@@ -181,11 +194,19 @@ p {
     border: none;
     height: 22px;
     font-style: italic;
+    color:white;
+    font-weight: 20px;
+    background-color: #505760;
 }
 #user-projects:hover,
 #user-projects:focus {
     outline: 1px solid rgba(67, 84, 152, 0.7);
 }
+
+option{
+  background-color:#2D2D2B;
+}
+
 #new-list-title {
     outline: 1px solid red;
 }
@@ -197,7 +218,6 @@ p {
     margin: 0 auto;
     text-align: center;
     vertical-align: middle;
-    position: relative;
     display: table-cell;
     width: 318px;
 }
@@ -214,7 +234,9 @@ section#wrap_waiting {
     display: block;
 }
 
-
+option[data-placeholder] {
+  display:none;
+}
 
 
 div#description {

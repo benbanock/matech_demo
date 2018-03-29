@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
     image_url = params[:image_url]
     project_id = params[:project_id]
     @item = Item.create(photo: image_url, url: item_url, name: item_title )
+    @item.tag_list.add("inspiration") if project_id == "-1"
     @project_item = ProjectItem.create(project_id: project_id, item_id: @item.id)
     tags = params[:tags]
     tags.each do |tag|
@@ -95,12 +96,17 @@ class ItemsController < ApplicationController
 
   def diffbot(item_url, item)
     require 'json'
-    url = "https://api.diffbot.com/v3/product?token=ed2e20097a61a422366d9238ecfa8086&url= #{item_url}"
+    url = "https://api.diffbot.com/v3/product?token=ed2e20097a61a422366d9238ecfa8086&url=""#{item_url}"
+    url = url.gsub(/\/\?.*/,"")
     data_serialized = open(url).read
     data = JSON.parse(data_serialized)
-    price = data["objects"][0]["offerPrice"]
-    item.price = price
-    item.save
+    if data["objects"]
+      price = data["objects"][0]["offerPrice"]
+      item.price = price
+      item.save
+    else
+      item.price = "no price"
+    end
   end
 
 end
