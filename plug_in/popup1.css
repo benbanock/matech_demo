@@ -167,9 +167,11 @@ p {
   flex-wrap:wrap;
   text-align: center;
   border:2px solid white;
-  border-radius: 5px;
-  padding:10px;
+  border-radius: 15px;
+  padding:8px;
   color:white;
+  margin:3px;
+
 }
 
 .description> input {

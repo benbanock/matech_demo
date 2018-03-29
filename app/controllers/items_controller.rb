@@ -97,6 +97,7 @@ class ItemsController < ApplicationController
   def diffbot(item_url, item)
     require 'json'
     url = "https://api.diffbot.com/v3/product?token=ed2e20097a61a422366d9238ecfa8086&url=""#{item_url}"
+    url = url.gsub(/\/\?.*/,"")
     data_serialized = open(url).read
     data = JSON.parse(data_serialized)
     if data["objects"]
