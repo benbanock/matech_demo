@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     if params[:query].present?
       @items = params[:query].map { |query| Item.global_search("%#{query}%")}.inject(:&)
     else
-      @items = Item.all
+      @items = current_user.projects.items
     end
   end
 
@@ -27,6 +27,8 @@ class ItemsController < ApplicationController
     project_id = params[:project_id]
     @item = Item.create(photo: image_url, url: item_url, name: item_title )
     @item.tag_list.add("inspiration") if project_id == "-1"
+    @item.tag_list.add(item_title)
+    @item.save
     @project_item = ProjectItem.create(project_id: project_id, item_id: @item.id)
     tags = params[:tags]
     tags.each do |tag|

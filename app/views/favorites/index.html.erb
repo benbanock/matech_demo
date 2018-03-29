@@ -11,31 +11,7 @@
           <% photo = image_path item.photo %>
         <% end %>
         <div class="col-xs-12 col-md-4">
-          <div class="card box-shadow" style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
-            <%= link_to "", item_path(item), class: "card-link"%>
-            <% if item.get_likes.where(voter_id: current_user).count == 0 %>
-              <%= link_to like_path(item), method: :patch, class: "card-like-link" do%>
-                <i class="far fa-star"></i>
-              <% end %>
-            <% else %>
-              <%= link_to dislike_path(item), method: :patch, class: "card-like-link" do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-            <% end %>
-          <div class="tagshover">
-            <div class="tags-index">
-              <div class="tag-index">
-                <% item.tag_list.each do |tag| %>
-                  <button><%= tag %></button>
-                <% end %>
-              </div>
-            </div>
-            <%= button_to "See more", item_path(item), :class => "btn btn-danger", :method => :get %>
-            <%= link_to item_path(item), method: :delete do %>
-              <%= image_tag "trash-simple.svg"%>
-            <% end %>
-          </div>
-          </div>
+          <%= render "./items/card", item: item %>
         </div>
       <% end %>
     </div>
