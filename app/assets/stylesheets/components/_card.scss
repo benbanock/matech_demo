@@ -11,14 +11,14 @@
     color: black;
     border: 1px solid black;
     border-radius: 20px;
-    margin: 10px;
+    margin: 4px;
     cursor: pointer;
     text-decoration: none;
     max-width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 5px 10px;
+    padding: 5px 15px;
     font-size: 18px;
     &:hover {
       background-color: rgba(100, 100, 100, 0.1);
@@ -62,23 +62,25 @@
         color: rgba(120, 120, 120, 1);
       }
       .btn {
-        border-color: black;
-        border-size: 15px;
+        border: 3px solid black;
         margin: 10px;
-        color: white;
-        background-color: #a3a3a3;
+        color: black;
+        background-color: white;
+        font-weight: bolder;
         position: absolute;
         left: 31%;
         bottom: 0px;
         letter-spacing: 1px;
         text-transform: uppercase;
         &:hover {
-          background-color: transparent;
+          background-color: #eaeaea;
+          font-weight: bolder;
           color: black;
         }
       }
     }
   }
+
   .card-like-link {
     z-index: 3;
     position: absolute;
@@ -97,3 +99,41 @@
   }
 }
 
+.button_to .btn-back{
+  color: black;
+  border-radius: 0;
+}
+.btn-back {
+  border: 3px solid black;
+  margin: 10px;
+  color: black;
+  background-color: white;
+  font-weight: bolder;
+  border-radius: 0;
+  padding: 3px 8px;
+  box-shadow: 1px 1px 1px 1px rgba(30, 30, 30, 0.2);
+   &:hover {
+    background-color: #eaeaea;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.email-sender {
+  border: 1px solid black;
+  margin: 0;
+  font-weight: bolder;
+  border-radius: 0 !important;
+  padding: 0;
+  background-color: white !important;
+  p {
+    text-decoration: none !important;
+  }
+  &:hover {
+    background-color: #eaeaea !important;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none !important;
+  }
+}
