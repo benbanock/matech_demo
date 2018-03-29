@@ -1,6 +1,6 @@
 <div class="container">
   <div class="title-row">
-    <h2>Edit "<%= @project.name %>"</h2>
+    <h2>Edit project "<%= @project.name %>"</h2>
     <%= link_to "Back", projects_path, class: "btn btn-primary" %>
   </div>
 
@@ -8,33 +8,15 @@
     <div class="block-name-users">
       <div class="block-name-users-part">
         <h3>Project</h3>
-        <div class="center-block width-70percent">
-          <%= simple_form_for(@project) do |f| %>
-            <div class="form-inlign">
-              <p>Name </p>
-              <%= f.input :name, label: false %>
-              <p>Status </p>
-              <%= f.input :status, collection: ["favorite", "pending", "archived"], label: false %>
-              <p><%= f.button :submit, "Save", class: "btn btn-info" %></p>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="block-name-users-part">
-        <h3>Client</h3>
-        <div class="center-block width-70percent">
-          <%= simple_form_for(@project) do |f| %>
-            <div class="form-inlign">
-              <!-- <p>First name</p> -->
-              <p><%= f.input :client_first_name, label: false, placeholder: "first name" %></p>
-              <!-- <p>Last name</p> -->
-              <p><%= f.input :client_last_name, label: false, placeholder: "last name" %></p>
-              <!-- <p>Email</p> -->
-              <p><%= f.input :client_email, label: false, placeholder: "email" %></p>
-              <p><%= f.button :submit, "Save", class: "btn btn-info" %></p>
-            </div>
-          <% end %>
-        </div>
+        <%= simple_form_for(@project) do |f| %>
+          <div class="form-inlign">
+            <p>Name </p>
+            <%= f.input :name, label: false, id:"width-min-form" %>
+            <p>Status </p>
+            <%= f.input :status, collection: ["favorite", "pending", "archived"], label: false, id:"width-min-form" %>
+            <p><%= f.button :submit, "Modify", class: "btn btn-info" %></p>
+          </div>
+        <% end %>
       </div>
 
       <div class="block-name-users-part">
@@ -64,14 +46,32 @@
                       <%= image_tag "trash-simple.svg" %>
                     <% end %>
                   </div>
-                </div>
+                </div
               </div>
             </div>
           <% end %>
         </div>
       </div>
     </div>
+
+    <div class="block-edit">
+      <div class="block-edit-part">
+        <h3>Client</h3>
+        <%= simple_form_for(@project) do |f| %>
+          <div>
+            <p><%= f.input :client_first_name, label: "First name" %></p>
+            <p><%= f.input :client_last_name, label: "Last name" %></p>
+            <p><%= f.input :client_email, label: "Email" %></p>
+            <% @project.client_email == nil ? button_name = "Add" : button_name = "Modify" %>
+            <p><%= f.button :submit, "#{button_name}", class: "btn btn-info" %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="block-edit-part center-button">
+        <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Do you really want to delete the project?" }, class: "btn btn-danger btn-enlarge" %>
+      </div>
+    </div>
   </div>
-  <%= link_to "Delete project", project_path(@project), method: :delete, data: { confirm: "Do you really want to delete the project?" }, class: "btn btn-danger btn-enlarge" %>
 </div>
 <%= render 'shared/footer' %>
+
