@@ -1,6 +1,14 @@
 <div class="container">
   <%= render 'shared/search' %>
   <div class="block-container">
+    <div class="col-xs-12">
+      <div class="scd-row">
+        <%= button_to "Back", items_path, :method => :get, :class => "btn-back"%>
+        <%= link_to item_path(@item), method: :delete do %>Delete Item
+          <i class="fas fa-times"></i>
+        <% end %>
+      </div>
+    </div>
     <div class="row big-area">
       <% if @item.photo.blank? %>
         <% photo = "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ce08c47852fb7cceac5e1e0fa88f404&auto=format&fit=crop&w=1012&q=80"%>
@@ -51,14 +59,6 @@
             <%= link_to "Show on original website  >>", @item.url, target: "_blank"  %>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="col-xs-12">
-      <div class="scd-row">
-        <%= button_to "Back", items_path, :method => :get, :class => "btn-back"%>
-        <%= link_to item_path(@item), method: :delete do %>Delete Item
-          <i class="fas fa-times"></i>
-        <% end %>
       </div>
     </div>
   </div>
