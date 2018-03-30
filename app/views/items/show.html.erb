@@ -1,64 +1,65 @@
 <div class="container">
   <%= render 'shared/search' %>
-  <div class="row big-area">
-    <% if @item.photo.blank? %>
-      <% photo = "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ce08c47852fb7cceac5e1e0fa88f404&auto=format&fit=crop&w=1012&q=80"%>
-    <% else %>
-      <% photo = cl_image_path @item.photo, width: 1210, height: 600, crop: :fill %>
-    <% end %>
-    <div class="col-xs-12 col-sm-8">
-      <div class="photoshow" style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
+  <div class="block-container">
+    <div class="col-xs-12">
+      <div class="scd-row">
+        <%= button_to "Back", items_path, :method => :get, :class => "btn-back"%>
+        <%= link_to item_path(@item), method: :delete do %>Delete Item
+          <i class="fas fa-times"></i>
+        <% end %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="area-right">
-        <div class="project-area-show">
-          <div class="form-projects">
-            <%= render "list", project_item: ProjectItem.new(item: @item), good_projects: @good_projects %>
-          </div>
-          <div class="tags-projects">
-            <% @item.project_items.each do |project_item| %>
-              <div class="tag-projects" data-project-item-id="<%= project_item.id %>">
-                <div class="project-name link_name"><%= link_to project_item.project.name, project_path(project_item.project) %></div>
-                <div class="bellepou">
-                <%= link_to project_item_path(project_item), remote: true, method: :delete do %>
-                  <i class="fas fa-times"></i>
-                <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
+    <div class="row big-area">
+      <% if @item.photo.blank? %>
+        <% photo = "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ce08c47852fb7cceac5e1e0fa88f404&auto=format&fit=crop&w=1012&q=80"%>
+      <% else %>
+        <% photo = cl_image_path @item.photo, width: 1210, height: 600, crop: :fill %>
+      <% end %>
+      <div class="col-xs-12 col-sm-8">
+        <div class="photoshow" style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
         </div>
-        <div class="tag-area-show">
-          <div class="form-tag"><%= render 'form', item: @item, tag: @tag %></div>
-          <div class="tags">
-            <div class="tag-index">
-              <% @item.tags.each do |tag| %>
-                <div class="tag-tags" data-tag-id="<%= tag.id %>">
-                  <div class="card-tag-index"><%= tag.name %></div>
-                    <div class="bellepou">
-                    <%= link_to item_tag_path(@item, tag), method: :delete, remote: true do %>
-                      <i class="fas fa-times"></i>
-                    <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="area-right">
+          <div class="project-area-show">
+            <div class="form-projects">
+              <%= render "list", project_item: ProjectItem.new(item: @item), good_projects: @good_projects %>
+            </div>
+            <div class="tags-projects">
+              <% @item.project_items.each do |project_item| %>
+                <div class="tag-projects" data-project-item-id="<%= project_item.id %>">
+                  <div class="project-name link_name"><%= link_to project_item.project.name, project_path(project_item.project) %></div>
+                  <div class="bellepou">
+                  <%= link_to project_item_path(project_item), remote: true, method: :delete do %>
+                    <i class="fas fa-times"></i>
+                  <% end %>
                   </div>
                 </div>
               <% end %>
             </div>
           </div>
-        </div>
-        <div class="website-area-show">
-          <%= link_to "Show on original website  >>", @item.url, target: "_blank"  %>
+          <div class="tag-area-show">
+            <div class="form-tag"><%= render 'form', item: @item, tag: @tag %></div>
+            <div class="tags">
+              <div class="tag-index">
+                <% @item.tags.each do |tag| %>
+                  <div class="tag-tags" data-tag-id="<%= tag.id %>">
+                    <div class="card-tag-index"><%= tag.name %></div>
+                      <div class="bellepou">
+                      <%= link_to item_tag_path(@item, tag), method: :delete, remote: true do %>
+                        <i class="fas fa-times"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="website-area-show">
+            <%= link_to "Show on original website  >>", @item.url, target: "_blank"  %>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="col-xs-12">
-    <div class="scd-row">
-      <%= button_to "Back", items_path, :method => :get, :class => "btn-back"%>
-      <%= link_to item_path(@item), method: :delete do %>Delete Item
-        <i class="fas fa-times"></i>
-      <% end %>
     </div>
   </div>
 </div>
