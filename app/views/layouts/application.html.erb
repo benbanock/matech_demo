@@ -28,7 +28,9 @@
       <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div id="wrapper">
+      <%= yield %>
+    </div>
     <% if !current_page?(root_path) %>
       <%= render 'shared/footer' %>
     <% end %>
