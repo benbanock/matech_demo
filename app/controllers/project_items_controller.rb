@@ -17,12 +17,13 @@ class ProjectItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:item_id])
     @project_item = ProjectItem.find(params[:id])
+    @item = @project_item.item
+    @project = @project_item.project
     authorize @project_item
     if @project_item.destroy
       respond_to do |format|
-        format.html { redirect_to item_path(@item) }
+        format.html { redirect_to project_path(@project) }
         format.js
       end
     end
