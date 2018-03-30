@@ -47,9 +47,9 @@
                   <p><em>Last update: <%= project.date.strftime("%d-%m-%y") %> (<%= (Time.now - project.date).to_i / 3600 %>h)</em></p>
                 <% end %>
                 <div class="collaborator-block">
-                  <p>Shared with</p>
+                  <!-- <p>Shared with</p> -->
                   <% project.users.each do |user| %>
-                    <%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %>
+                    <a data-toggle="tooltip" data-placement="bottom" title="<%= user.first_name %>"><%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %></a>
                   <% end %>
                 </div>
               </div>

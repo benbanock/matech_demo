@@ -2,7 +2,6 @@
   <div class="block-container-index">
     <div class="title-row-show">
       <h2>Project "<%= @project.name %>"</h2>
-      <%= link_to "Back", projects_path, class: "btn-back" %>
     </div>
 
     <div class="row">
@@ -10,7 +9,7 @@
         <div class="collaborator-block">
           <p>Shared with </p>
           <% @project.users.each do |user| %>
-            <%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %>
+            <a data-toggle="tooltip" data-placement="bottom" title="<%= user.first_name %>"><%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %></a>
           <% end %>
         </div>
         <%= link_to project_sendmail_path(@project) do %>
