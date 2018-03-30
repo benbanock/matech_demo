@@ -23,34 +23,34 @@
     </div>
 
   <div class="row">
-    <% @items.reverse.each do |item| %>
-      <% if item.photo.blank? %>
+    <% @items.reverse.each do |project_item| %>
+      <% if project_item.item.photo.blank? %>
         <% photo = "https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ce08c47852fb7cceac5e1e0fa88f404&auto=format&fit=crop&w=1012&q=80"%>
       <% else %>
-        <% photo = item.photo %>
+        <% photo = project_item.item.photo %>
       <% end %>
       <div class="col-xs-12 col-md-4">
-        <div class="card box-shadow" id= <%= "#{item.id}" %> style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
-          <%= link_to "", item_path(item), class: "card-link"%>
-          <% if item.get_likes.where(voter_id: current_user).count == 0 %>
-            <%= link_to like_path(item), remote: true, method: :patch, class: "card-like-link" do%>
+        <div class="card box-shadow" id= <%= "#{project_item.item.id}" %> style="background-image: linear-gradient(rgba(150,150,150,0.2), rgba(150,150,150,0.2)), url('<%= photo %>')">
+          <%= link_to "", item_path(project_item.item), class: "card-link"%>
+          <% if project_item.item.get_likes.where(voter_id: current_user).count == 0 %>
+            <%= link_to like_path(project_item.item), remote: true, method: :patch, class: "card-like-link" do%>
               <i class="far fa-star"></i>
             <% end %>
           <% else %>
-            <%= link_to dislike_path(item), remote: true, method: :patch, class: "card-like-link" do %>
+            <%= link_to dislike_path(project_item.item), remote: true, method: :patch, class: "card-like-link" do %>
               <i class="fas fa-star"></i>
             <% end %>
           <% end %>
         <div class="tagshover">
           <div class="tags-index">
             <div class="tag-index">
-              <% item.tag_list.each do |tag| %>
+              <% project_item.item.tag_list.each do |tag| %>
                 <div class="card-tag-index"><%= tag %></div>
               <% end %>
             </div>
           </div>
-          <%= button_to "See item", item_path(item), :class => "btn btn-danger", :method => :get %>
-          <%= link_to item_path(item), method: :delete, data: { confirm: "Do you really want to delete this item?" } do %>
+          <%= button_to "See item", item_path(project_item.item), :class => "btn btn-danger", :method => :get %>
+          <%= link_to project_item_path(project_item), method: :delete, data: { confirm: "Do you really want to delete this item?" } do %>
             <%= image_tag "trash-simple.svg"%>
           <% end %>
         </div>

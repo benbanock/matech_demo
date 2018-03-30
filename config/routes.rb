@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   resources :favorites, only: :index
   resources :items, only: [:index, :show, :destroy] do
     resources :tags, only: [:create, :destroy]
-    resources :project_items, only: [:create, :destroy]
+    resources :project_items, only: [:create]
     get "quickshow", to: "items#quickshow", as: :quickshow
   end
-
+  resources :project_items, only: :destroy
   resources :user_projects, only: [ :destroy ]
   get "projectsfavorites", to: "projects#favorites", as: "projectsfavorites"
   get "projectsrecent", to: "projects#recent", as: "projectsrecent"
