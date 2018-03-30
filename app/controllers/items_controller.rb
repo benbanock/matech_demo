@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     if params[:query].present?
       @items = params[:query].map { |query| Item.global_search("%#{query}%")}.inject(:&)
     else
-      @items = Item.all
+      @items = Item.order(updated_at: :desc)
     end
   end
 
