@@ -3,13 +3,28 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
+  background: white;
+  color: black;
+  border-bottom: 1px solid black;
+  font-family: Akkurat;
+  margin-bottom: 0px;
   text-align: center;
-  color: white;
 }
+
 .alert-info {
-  background: $green;
+  background: white;
+  color: black;
+  border-bottom: 1px solid black;
+  font-family: Akkurat;
+  margin-bottom: 0px;
 }
+
 .alert-warning {
-  background: $red;
+  background: white;
+  color: black;
+  border-bottom: 1px solid black;
+  font-family: Akkurat;
+  margin-bottom: 0px;
 }
+
+
