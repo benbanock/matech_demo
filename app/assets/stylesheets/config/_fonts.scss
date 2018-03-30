@@ -5,7 +5,6 @@
 // Define fonts for body and headers
 $body-font: "Aqua", "Helvetica", "sans-serif";
 $headers-font: "Aqua", "Helvetica", "sans-serif";
-$h1-font: "Neue", "Helvetica", "sans-serif";
 
 
 @font-face {
@@ -31,6 +30,11 @@ $h1-font: "Neue", "Helvetica", "sans-serif";
 @font-face {
   font-family: "Neue";
   src: font-url('assets/Neue.ttf');
+}
+
+@font-face {
+  font-family: "Akkurat";
+  src: font-url('assets/Akkurat.otf');
 }
 
 // To use a font file (.woff) uncomment following lines
