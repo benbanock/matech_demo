@@ -96,6 +96,11 @@
     color: black;
   }
 }
+
+.scd-row {
+  display: flex;
+  justify-content: space-between;
+}
 .scd-row input {
   margin: 20px;
   padding: 1px 13px;
