@@ -12,6 +12,7 @@ gem "pundit"
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
 gem 'acts-as-taggable-on', '~> 5.0'
+gem 'devise_invitable', '~> 1.5', '>= 1.5.5'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -29,6 +30,7 @@ gem 'chosen-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem "letter_opener"
 end
 
 group :development, :test do

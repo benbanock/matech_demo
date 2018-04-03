@@ -8,6 +8,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: calc(100vh-150px-70px);
+  padding-left: 75px;
+  padding-right: 75px;
+  font-family: Akkurat;
+  font-size: 10px;
+  letter-spacing: 1px;
+  position: sticky;
+  top: 0px;
+  z-index: 12;
 }
 
 /* Logo */
@@ -34,7 +43,13 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 14px;
+}
+
+.navbar-wagon-item-a {
+  cursor: pointer;
+  padding: 0 14px;
+  padding-right: 30px;
 }
 
 /* Navbar link */

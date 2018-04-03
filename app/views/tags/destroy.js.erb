@@ -1,0 +1,6 @@
+function destroyTag() {
+  const tag = document.querySelector("[data-tag-id='<%= @tag.id %>']");
+  tag.remove();
+}
+
+destroyTag();

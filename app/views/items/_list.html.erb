@@ -1,0 +1,4 @@
+<%= simple_form_for([project_item.item, project_item], html: { class: "form-inline"}, remote: true, url: item_project_items_path(project_item.item)) do |f| %>
+  <%= f.input :project_id, prompt: "Add a project", label: false, collection: good_projects %>
+  <%= f.button :submit, "Add", class: "" %>
+<% end %>

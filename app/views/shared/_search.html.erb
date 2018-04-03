@@ -1,10 +1,26 @@
-<%= form_tag items_path, method: :get do %>
-  <%= select_tag :query,
-    options_for_select(Tag.pluck(:name), params[:query]),
-    {
-      class: "form-control chosen-select",
-      placeholder: "What's the tag you're looking for ?",
-      multiple: true
-    }
-  %>
-<% end %>
+
+<div class="search-block">
+  <div class="search-title-text">
+    <p>Search by tags</p>
+  </div>
+  <div class="search-div">
+    <%= form_tag items_path, method: :get, id: "search-tag" do %>
+      <%= select_tag :query,
+        options_for_select(Tag.pluck(:name), params[:query]),
+        {
+          class: "form-control chosen-select",
+          placeholder: "What's the tag you're looking for ?",
+          multiple: true
+        }
+      %>
+    <% end %>
+  </div>
+</div>
+
+
+<!-- TO ADD A PRICE CURSOR (slider) -->
+
+<!-- <div> -->
+  <%#= render 'shared/slider' %>
+<!-- </div> -->
+

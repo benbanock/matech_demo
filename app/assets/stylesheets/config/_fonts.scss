@@ -1,14 +1,45 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 
+
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
+$body-font: "Aqua", "Helvetica", "sans-serif";
+$headers-font: "Aqua", "Helvetica", "sans-serif";
+
+
+@font-face {
+  font-family: "Aqua";
+  src: font-url('assets/Aqua.otf');
+}
+
+
+@font-face {
+  font-family: "Maple-Regular";
+  src: font-url('assets/Maple-Regular.otf');
+}
+@font-face {
+  font-family: "Format_1452";
+  src: font-url('assets/Format_1452.otf');
+}
+
+@font-face {
+  font-family: "pier";
+  src: font-url('assets/pier.otf');
+}
+
+@font-face {
+  font-family: "Neue";
+  src: font-url('assets/Neue.otf');
+}
+
+@font-face {
+  font-family: "Akkurat";
+  src: font-url('assets/Akkurat.otf');
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
 //   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
 //        font-url('FontFile.woff') format('woff'),
 //        font-url('FontFile.ttf') format('truetype')

@@ -6,11 +6,25 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects
   end
 
+  def favorites
+    @project = Project.new
+    authorize @project
+    @projects = current_user.projects.where(status: "favorite")
+  end
+
+  def recent
+    @project = Project.new
+    authorize @project
+    @projects = current_user.projects
+  end
+
   def create
     @project = Project.new(project_params)
     @project.date = Time.now
     authorize @project
-    @project.save
+    if !@project.save
+      return redirect_to projects_path
+    end
     @tag = Tag.new
     @tag.name = @project.name
     @tag.save
@@ -50,13 +64,22 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @items = @project.items
+    @items = @project.project_items
     authorize @project
+  end
+
+  def mailtoclient
+    @project = Project.find(params[:project_id])
+    authorize @project
+    UserMailer.welcome(@project).deliver_now
+    # @user = User.invite!(email: @project.client_email) #to send email invitation with Devise Invitable
+    # UserProject.create(project: @project, user: @user) #to send email invitation with Devise Invitable
+    redirect_to project_path(@project)
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:name, :date, :status)
+    params.require(:project).permit(:name, :date, :status, :client_first_name, :client_last_name, :client_email)
   end
 end

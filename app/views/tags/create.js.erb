@@ -1,0 +1,13 @@
+function addTag(newTagHTML) {
+  const tagContainer = document.querySelector(".tag-index");
+  tagContainer.insertAdjacentHTML("beforeend", newTagHTML);
+}
+
+addTag("<%= j render 'items/tag', item: @item, tag: @tag %>");
+
+function refreshForm(innerHTML) {
+  const tagForm = document.querySelector(".form-tag");
+  tagForm.innerHTML = innerHTML;
+}
+
+refreshForm("<%= j render 'items/form', item: @item, tag: Tag.new %>");
