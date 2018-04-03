@@ -1,7 +1,7 @@
 <div class="tag-projects" data-project-item-id="<%= project_item.id %>">
-  <div class="project-name"><%= project_item.project.name %></div>
+  <div class="project-name link_name"><%= link_to project_item.project.name, project_path(project_item.project) %></div>
     <div class="bellepou">
-    <%= link_to item_project_item_path(project_item.item, project_item), remote: true, method: :delete do %>
+    <%= link_to project_item_path(project_item), remote: true, method: :delete do %>
       <i class="fas fa-times"></i>
     <% end %>
     </div>

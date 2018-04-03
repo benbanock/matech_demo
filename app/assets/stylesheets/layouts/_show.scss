@@ -3,6 +3,7 @@
 }
 .photoshow {
   background-size: cover;
+  background-position: center;
   height: 80vh;
   justify-content: center;
   display: flex;
@@ -40,7 +41,7 @@
   padding: 5px 10px;
   margin-bottom: 5px;
   margin-right: 10px;
-  font-family: Neue;
+  font-family: Akkurat;
   letter-spacing: 1px;
   .bellepou {
     background-color: #665e5e;
@@ -73,7 +74,7 @@
   padding: 5px 10px;
   margin-bottom: 5px;
   margin-right: 10px;
-  font-family: Neue;
+  font-family: Akkurat;
   letter-spacing: px;
   .bellepou {
     background-color: #665e5e;
@@ -95,6 +96,11 @@
     text-decoration: none;
     color: black;
   }
+}
+
+.scd-row {
+  display: flex;
+  justify-content: space-between;
 }
 .scd-row input {
   margin: 20px;

@@ -13,8 +13,10 @@
       <div class="row">
         <div class="project-groups">
           <%= simple_form_for(@project) do |f| %>
-            <div class="form-inlign"><%= f.input :name, label: false, placeholder: "New project" %></div>
-            <div class="form-inlign"><%= f.button :submit, "+", class: "btn btn-primary" %></div>
+            <div class="form-create">
+              <%= f.input :name, label: false, placeholder: "New project" %>
+              <%= f.button :submit, "+", class: "btn btn-primary" %>
+            </div>
           <% end %>
         </div>
       </div>
@@ -27,7 +29,7 @@
             <div class="card-project-element">
               <div class="card-project-photo">
                 <%=link_to project_path(project) do %>
-                  <%= image_tag "image3.jpg", class: "photo-project" %>
+                  <%= image_tag "mattech#{rand(1..30)}.jpg", class: "photo-project" %>
                 <% end %>
               </div>
               <div class="card-project-name">
@@ -45,9 +47,9 @@
                   <p><em>Last update: <%= project.date.strftime("%d-%m-%y") %> (<%= (Time.now - project.date).to_i / 3600 %>h)</em></p>
                 <% end %>
                 <div class="collaborator-block">
-                  <p>Shared with</p>
+                  <!-- <p>Shared with</p> -->
                   <% project.users.each do |user| %>
-                    <%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %>
+                    <a data-toggle="tooltip" data-placement="bottom" title="<%= user.first_name %>"><%= image_tag user.picture, class: "avatar-extra-small avatar-margin-left" %></a>
                   <% end %>
                 </div>
               </div>
@@ -58,4 +60,3 @@
     <% end %>
   </div>
 </div>
-<%= render 'shared/footer' %>

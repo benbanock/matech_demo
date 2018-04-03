@@ -1,7 +1,8 @@
 function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
-  console.log(project_id)
-  console.log(item_url)
-   fetch("http://localhost:3000/create_ext", {
+  console.log(project_id);
+  console.log(item_url);
+
+  fetch("http://localhost:3000/create_ext", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -20,8 +21,12 @@ function addItem(item_url, item_title, user_id, image_url, project_id, tags) {
   .then(response => response.json())
   .then((data) => {
     console.log(data);
+    console.log(data.price);
     if(data.status == "ok") {
-      document.getElementById("save-btn").innerText = "Done";
+      const load = document.getElementById("loader-1");
+      load.classList.add("hidden");
+      const menutitle = document.querySelector(".menu-title");
+      menutitle.insertAdjacentHTML( "beforeend",'<div class="big-check"><i class="fa fa-check"> </i></div>');
     }
 
     // set the answer depending on create ext.
@@ -105,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let word = document.getElementById("tag-title").value;
       tags.push(word)
       let list = document.getElementById("display_tag");
-      list.insertAdjacentHTML( "beforeend", `<li> ${word} </li>`);
+      list.insertAdjacentHTML( "beforeend", `<div class="tag"> ${word} <div>`);
       document.getElementById("tag-title").value = ""
       console.log(tags)
     }
@@ -115,8 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById('item-title').placeholder= item_title
   const create = document.getElementById("save-btn");
+  const load = document.getElementById("loader-1")
   create.addEventListener("click", (event) => {
     console.log(event);
+    create.classList.add("hidden");
+    load.classList.remove("hidden");
+
     project_id = document.getElementById("user-projects").value;
     console.log(item_url, item_title,user_id, image_url,project_id);
     addItem(item_url, item_title,user_id, image_url,project_id, tags);

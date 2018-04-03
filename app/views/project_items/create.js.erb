@@ -2,6 +2,12 @@ function refreshCard(innerHTML) {
   const projectItems = document.querySelector(".tags-projects");
   projectItems.insertAdjacentHTML('beforeend', innerHTML);
 }
-
 refreshCard('<%= j render "items/button", project_item: @project_item %>');
 
+
+function refreshList(innerHTML) {
+  const projectItems = document.querySelector(".form-projects");
+  projectItems.innerHTML = innerHTML;
+}
+
+refreshList('<%= j render "items/list", project_item: ProjectItem.new(item: @item), good_projects: @good_projects %>');

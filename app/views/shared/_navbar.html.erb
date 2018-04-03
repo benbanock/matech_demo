@@ -3,11 +3,11 @@
   <!-- Logo -->
   <% if user_signed_in? %>
     <%= link_to items_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo.png", height: 80 %>
+      <%= image_tag "logo1.svg", height: 80 %>
     <% end %>
   <% else %>
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo.png", height: 80 %>
+      <%= image_tag "logo1.svg", height: 80 %>
     <% end %>
   <% end %>
 
@@ -19,15 +19,7 @@
       <!-- Links when logged in -->
 
       <%= link_to "Items", items_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Projects", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Members", index_path, class: "navbar-wagon-item-a navbar-wagon-link" %>
-
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <i class="fa fa-bell"></i>
-      <% end %>
-      <%= link_to favorites_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-        <i class="fa fa-star"></i>
-      <% end %>
+      <%= link_to "Projects", projects_path, class: "navbar-wagon-item-a navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -42,6 +34,11 @@
             <li>
               <%= link_to index_path do %>
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to favorites_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                <i class="fa fa-star"></i> <%= t(".favorites", default: "Favorites") %>
               <% end %>
             </li>
             <li>

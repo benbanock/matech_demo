@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @items = @project.items
+    @items = @project.project_items
     authorize @project
   end
 
